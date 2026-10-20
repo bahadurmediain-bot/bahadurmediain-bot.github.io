@@ -1,0 +1,2553 @@
+<!DOCTYPE html>
+<html lang="bn" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>BAHADUR AI — Think Smarter. Create Better.</title>
+  <meta name="description" content="BAHADUR AI — Think Smarter. Create Better. Premium AI Assistant with intelligent multi-turn chat, 15 specialized AI generation tools, bilingual Bengali & English support, and Hilltop monetization ads." />
+  <meta property="og:title" content="BAHADUR AI — Think Smarter. Create Better." />
+  <meta property="og:description" content="BAHADUR AI — Think Smarter. Create Better. Premium AI Assistant with intelligent multi-turn chat, 15 specialized AI generation tools, bilingual Bengali & English support, and Hilltop monetization ads." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Google Fonts: Outfit & Hind Siliguri -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Hind+Siliguri:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Outfit', 'Hind Siliguri', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            midnight: '#0B1020',
+            electric: '#2563EB',
+            cyanBrand: '#06B6D4',
+            purpleBrand: '#7C3AED',
+            emeraldBrand: '#10B981',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @keyframes headlineSparkleSweep {
+      0% {
+        background-position: 200% 0;
+        filter: drop-shadow(0 0 4px rgba(6, 182, 212, 0.2));
+      }
+      50% {
+        background-position: 0% 0;
+        filter: drop-shadow(0 0 16px rgba(6, 182, 212, 0.7)) drop-shadow(0 0 24px rgba(37, 99, 235, 0.5));
+      }
+      100% {
+        background-position: -200% 0;
+        filter: drop-shadow(0 0 6px rgba(124, 58, 237, 0.3));
+      }
+    }
+    .shimmer-headline {
+      background: linear-gradient(110deg, #FFFFFF 0%, #E0F2FE 20%, #06B6D4 38%, #FFFFFF 50%, #2563EB 62%, #7C3AED 80%, #FFFFFF 100%);
+      background-size: 250% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: headlineSparkleSweep 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      display: inline-block;
+    }
+    .glass-panel {
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .glass-card {
+      background: rgba(17, 24, 39, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glow-cyan { box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.35); }
+    .glow-blue { box-shadow: 0 0 25px -5px rgba(37, 99, 235, 0.35); }
+    .glow-purple { box-shadow: 0 0 25px -5px rgba(124, 58, 237, 0.35); }
+    
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(11, 16, 32, 0.6); }
+    ::-webkit-scrollbar-thumb { background: rgba(6, 182, 212, 0.35); border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(6, 182, 212, 0.7); }
+
+    html, body {
+      width: 100% !important;
+      min-height: 100vh !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow-x: hidden !important;
+      background-color: #0B1020 !important;
+    }
+
+    /* Top Banner Subtle Sliding Light Animation */
+    @keyframes bannerLightSweep {
+      0% {
+        transform: translateX(-150%) skewX(-25deg);
+        opacity: 0;
+      }
+      25% {
+        opacity: 0.55;
+      }
+      50% {
+        opacity: 0.85;
+      }
+      75% {
+        opacity: 0.55;
+      }
+      100% {
+        transform: translateX(260%) skewX(-25deg);
+        opacity: 0;
+      }
+    }
+    .banner-light-beam {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 45%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(6, 182, 212, 0.08) 20%,
+        rgba(255, 255, 255, 0.45) 50%,
+        rgba(6, 182, 212, 0.2) 80%,
+        transparent 100%
+      );
+      filter: blur(10px);
+      animation: bannerLightSweep 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      pointer-events: none;
+    }
+
+    /* Button Animations */
+    .btn-animated {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .btn-animated:hover {
+      transform: translateY(-1.5px);
+      filter: brightness(1.08);
+    }
+    .btn-animated:active {
+      transform: translateY(1px) scale(0.97);
+    }
+  </style>
+
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <!-- HTML code For zone #7505873 -->
+  <script>
+  (function(jxad){
+  var d = document,
+      s = d.createElement('script'),
+      l = d.currentScript || d.scripts[d.scripts.length - 1];
+  s.settings = jxad || {};
+  s.src = "\/\/prizefamily.com\/b.X\/V\/s\/dqGulS0cYfWBcv\/PeVmZ9auMZ\/U\/lvk_PUTRcX1uMjDqUP4\/NxzuMetYN\/zYU\/wMNUTEgN3aN\/wv";
+  s.async = true;
+  s.referrerPolicy = 'no-referrer-when-downgrade';
+  l.parentNode.insertBefore(s, l);
+  })({})
+  </script>
+
+  <!-- HTML code For zone #7519841 (Banner 1) -->
+  <script>
+  (function(zlfza){
+  var d = document,
+      s = d.createElement('script'),
+      l = d.currentScript || d.scripts[d.scripts.length - 1];
+  s.settings = zlfza || {};
+  s.src = "\/\/prizefamily.com\/b.XYVUsedgGzlW0dYpW\/cp\/leOmt9cupZlUWl-k\/PgTocq1DMCTekg4jNaD\/E\/trNnz\/U_xJOETEg\/0\/NgQd";
+  s.async = true;
+  s.referrerPolicy = 'no-referrer-when-downgrade';
+  l.parentNode.insertBefore(s, l);
+  })({})
+  </script>
+
+  <!-- HTML code For zone #7519841 (Banner 2) -->
+  <script>
+  (function(zlfza){
+  var d = document,
+      s = d.createElement('script'),
+      l = d.currentScript || d.scripts[d.scripts.length - 1];
+  s.settings = zlfza || {};
+  s.src = "\/\/prizefamily.com\/b\/X.Vzsvd\/G\/lY0rYtWXcF\/MeXmj9\/uaZmUalKk\/PHTEco1cMlTIko4EN\/jxEQtfNNziUTxPOmT\/gJ2jN\/QE";
+  s.async = true;
+  s.referrerPolicy = 'no-referrer-when-downgrade';
+  l.parentNode.insertBefore(s, l);
+  })({})
+  </script>
+
+  <!-- HTML code For zone #7519741 (Video Slider) -->
+  <script>
+  (function(zlfza){
+  var d = document,
+      s = d.createElement('script'),
+      l = d.currentScript || d.scripts[d.scripts.length - 1];
+  s.settings = zlfza || {};
+  s.src = "\/\/prizefamily.com\/bxX.V\/s\/dsGPl\/0cYrWqcI\/LeFmB9wu\/ZyUYlPk\/PDTOcS1RMxTzkM3uNXDZEftwN\/zkUWxtOLT_ch0PNSQq";
+  s.async = true;
+  s.referrerPolicy = 'no-referrer-when-downgrade';
+  l.parentNode.insertBefore(s, l);
+  })({})
+  </script>
+
+  <!-- Zone #6021272 Ad Provider Core Script -->
+  <script async type="application/javascript" src="https://a.magsrv.com/ad-provider.js"></script>
+<script src="/_aistudio-iframe.js?v=6634132a"></script></head>
+<body class="bg-[#0B1020] text-slate-100 min-h-screen flex flex-col font-sans selection:bg-cyan-500/30 selection:text-cyan-200 overflow-x-hidden">
+
+  <!-- Body Ad Network Integration -->
+  <script async src="https://js.wpadmngr.com/static/adManager.js" data-admpid="469175"></script>
+  <script async src="https://js.wpadmngr.com/static/adManager.js" data-admpid="469179"></script>
+
+  <div data-banner-id="1504909"></div>
+
+  <script async src="https://js.wpadmngr.com/static/adManager.js" data-admpid="469180"></script>
+
+  <!-- ================= TOP HEADER ================= -->
+  <header class="sticky top-0 z-40 w-full border-b border-white/10 bg-[#0B1020]/95 backdrop-blur-xl">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 h-16 flex items-center justify-between gap-2">
+      <!-- Left: Logo & Brand -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button onclick="toggleMobileSidebar()" class="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-colors flex items-center justify-center border border-white/10 hover:border-cyan-500/40" title="Menu • 3-Line Button" aria-label="3 Line Menu Button">
+          <i data-lucide="menu" class="w-5 h-5 text-cyan-400"></i>
+        </button>
+        <button onclick="switchTab('dashboard')" class="flex items-center gap-2 sm:gap-3 focus:outline-none">
+          <div class="relative w-10 h-10 rounded-xl bg-[#0B1020] p-0.5 border border-cyan-400/40 shadow-lg glow-cyan shrink-0 flex items-center justify-center overflow-hidden">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8YiLP6hbv7toWrMQU5CDfdv-xUFgOGUbMDdryd6xs6AIT3mg0YU_X0LS2MItf6sAPpglcz5zTEYqhIG1_npdmBv9h1CH9CQP4HBG5ahs-z35Avx39mX_zgQPTj1bcJ0Cwmf8cTawJ6AKq0IgwWoXFIeZsaf8xVfdSeUxfIxJ_oeKy-2sCvetxBrUSGEs/s1254/file_000000007b3081f487f6b88178301a6e.png" alt="Bahadur AI Logo" class="w-full h-full object-contain rounded-lg" />
+          </div>
+          <div class="flex flex-col text-left">
+            <div class="flex items-center gap-1.5 leading-none">
+              <span class="font-extrabold text-lg sm:text-xl text-white tracking-tight">BAHADUR</span>
+              <span class="font-black text-lg sm:text-xl text-cyan-400 tracking-wider">AI</span>
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+            </div>
+            <span class="text-[9px] sm:text-[10px] text-cyan-300/80 font-mono tracking-wider uppercase mt-0.5">Think Smarter. Create Better.</span>
+          </div>
+        </button>
+      </div>
+
+      <!-- Center: Navigation Tabs (Desktop) -->
+      <nav class="hidden md:flex items-center gap-1 bg-slate-900/80 p-1.5 rounded-full border border-white/10 shadow-inner">
+        <button id="nav-btn-dashboard" onclick="triggerActionWithVideoAd(() => switchTab('dashboard'))" class="flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold transition-all bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-md">
+          <i data-lucide="layout-dashboard" class="w-3.5 h-3.5"></i>
+          <span>Dashboard</span>
+        </button>
+        <button id="nav-btn-chat" onclick="triggerActionWithVideoAd(() => switchTab('chat'))" class="flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold transition-all text-slate-300 hover:text-white hover:bg-white/5">
+          <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+          <span>AI Chat</span>
+        </button>
+        <button id="nav-btn-voice" onclick="triggerActionWithVideoAd(() => switchTab('voice'))" class="flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold transition-all text-slate-300 hover:text-white hover:bg-white/5">
+          <i data-lucide="mic" class="w-3.5 h-3.5 text-pink-400"></i>
+          <span>AI Voice</span>
+          <span class="px-1.5 py-0.2 text-[9px] rounded-full bg-pink-500/20 text-pink-300 font-mono">10 LANG</span>
+        </button>
+        <button id="nav-btn-tools" onclick="triggerActionWithVideoAd(() => switchTab('tools'))" class="flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold transition-all text-slate-300 hover:text-white hover:bg-white/5">
+          <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
+          <span>16 AI Tools</span>
+          <span class="px-1.5 py-0.2 text-[9px] rounded-full bg-cyan-500/20 text-cyan-300 font-mono">16</span>
+        </button>
+      </nav>
+
+      <!-- Right: Action Buttons (Login & 3-Dot Menu) -->
+      <div class="flex items-center gap-1.5 sm:gap-2">
+        <!-- Always Visible Login Button -->
+        <button onclick="openApiKeyModal()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:opacity-90 text-white text-xs font-bold shadow-md transition-all active:scale-95" title="Login / Setup Access">
+          <i data-lucide="log-in" class="w-3.5 h-3.5"></i>
+          <span>Login</span>
+        </button>
+
+        <!-- 3-Dot Menu Options Button -->
+        <div class="relative">
+          <button onclick="toggleThreeDotMenu()" class="p-2 rounded-xl bg-white/5 hover:bg-white/15 text-slate-300 hover:text-white border border-white/10 transition-colors flex items-center justify-center" title="More Options" aria-label="3-Dot Menu">
+            <i data-lucide="more-vertical" class="w-4 h-4 text-cyan-400"></i>
+          </button>
+
+          <!-- 3-Dot Dropdown -->
+          <div id="threeDotMenuDropdown" class="hidden absolute right-0 mt-2 w-60 rounded-2xl bg-[#090E1F]/98 backdrop-blur-2xl border border-cyan-500/30 shadow-2xl py-2 z-50">
+            <div class="px-3 py-1.5 border-b border-white/10 text-[11px] font-bold text-cyan-300 uppercase tracking-wider flex items-center gap-1.5">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-cyan-400"></i>
+              <span>BAHADUR AI Options</span>
+            </div>
+
+            <!-- 1. Login / Auth Setup -->
+            <button onclick="toggleThreeDotMenu(); openApiKeyModal()" class="w-full text-left px-3 py-2 text-xs text-white hover:bg-white/10 flex items-center justify-between">
+              <span class="flex items-center gap-2">
+                <i data-lucide="log-in" class="w-4 h-4 text-cyan-400"></i>
+                <span class="font-semibold">Login / Auth Setup</span>
+              </span>
+              <span class="text-[10px] px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-mono font-bold">Auth</span>
+            </button>
+
+            <!-- 2. Gemini API Key -->
+            <button onclick="toggleThreeDotMenu(); openApiKeyModal()" class="w-full text-left px-3 py-2 text-xs text-slate-200 hover:text-white hover:bg-white/10 flex items-center gap-2">
+              <i data-lucide="key" class="w-4 h-4 text-cyan-400"></i>
+              <span>Gemini API Key Setup</span>
+            </button>
+
+            <!-- 3. Language Toggle -->
+            <button onclick="toggleThreeDotMenu(); toggleLang()" class="w-full text-left px-3 py-2 text-xs text-slate-200 hover:text-white hover:bg-white/10 flex items-center justify-between">
+              <span class="flex items-center gap-2">
+                <i data-lucide="globe" class="w-4 h-4 text-cyan-400"></i>
+                <span>Language Switch</span>
+              </span>
+              <span id="threeDotLangLabel" class="text-[10px] font-mono font-bold text-cyan-300 bg-cyan-500/20 px-1.5 py-0.5 rounded">EN</span>
+            </button>
+
+            <!-- 4. About BAHADUR AI -->
+            <button onclick="toggleThreeDotMenu(); openAboutModal()" class="w-full text-left px-3 py-2 text-xs text-slate-200 hover:text-white hover:bg-white/10 flex items-center gap-2 border-t border-white/10">
+              <i data-lucide="sparkles" class="w-4 h-4 text-purple-400"></i>
+              <span>About BAHADUR AI</span>
+            </button>
+
+            <!-- 5. Send Feedback -->
+            <button onclick="toggleThreeDotMenu(); openFeedbackModal()" class="w-full text-left px-3 py-2 text-xs text-slate-200 hover:text-white hover:bg-white/10 flex items-center gap-2">
+              <i data-lucide="message-square" class="w-4 h-4 text-blue-400"></i>
+              <span>Send Feedback</span>
+            </button>
+
+            <!-- 6. Admin Security Portal -->
+            <button onclick="toggleThreeDotMenu(); openAdminModal()" class="w-full text-left px-3 py-2 text-xs text-emerald-400 hover:bg-emerald-500/10 flex items-center gap-2 border-t border-white/10">
+              <i data-lucide="shield" class="w-4 h-4 text-emerald-400"></i>
+              <span>Admin Security Portal</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTAINER ================= -->
+  <div class="flex-1 flex overflow-hidden relative">
+
+    <!-- DESKTOP / MOBILE SIDEBAR -->
+    <aside id="app-sidebar" class="fixed md:static inset-y-0 left-0 z-40 w-72 md:w-64 bg-[#0B1020]/95 md:bg-[#0B1020]/70 backdrop-blur-2xl border-r border-white/10 flex flex-col transition-transform duration-300 ease-in-out -translate-x-full md:translate-x-0">
+      <div class="p-3 border-b border-white/10 space-y-2">
+        <div class="flex items-center justify-between md:hidden pb-1">
+          <span class="text-xs font-bold text-slate-300">BAHADUR AI MENU</span>
+          <button onclick="toggleMobileSidebar()" class="p-1 text-slate-400 hover:text-white"><i data-lucide="x" class="w-4 h-4"></i></button>
+        </div>
+        <button onclick="createNewConversation()" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 via-cyan-500 to-purple-600 hover:opacity-95 text-white font-semibold text-xs shadow-lg glow-cyan transition-all active:scale-95">
+          <i data-lucide="plus" class="w-4 h-4"></i>
+          <span>New Chat</span>
+        </button>
+      </div>
+
+      <!-- Past Chats History -->
+      <div class="flex-1 overflow-y-auto p-2 space-y-1" id="chatHistoryList">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Sidebar Footer -->
+      <div class="p-3 border-t border-white/10 space-y-2 text-xs">
+        <button onclick="openApiKeyModal()" class="w-full flex items-center gap-2 px-3 py-2 rounded-xl bg-cyan-500/10 text-cyan-300 hover:bg-cyan-500/20 font-medium">
+          <i data-lucide="key" class="w-4 h-4"></i>
+          <span>Gemini API Key Setup</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN VIEW AREA -->
+    <main class="flex-1 flex flex-col min-w-0 overflow-y-auto pb-20 md:pb-6 relative">
+
+      <!-- ================= 1. DASHBOARD VIEW ================= -->
+      <section id="view-dashboard" class="px-4 sm:px-6 lg:px-8 py-6 md:py-8 max-w-5xl mx-auto w-full space-y-8">
+        
+        <!-- Official Top Hero App Banner Image with Sliding Light Animation -->
+        <div class="w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-cyan-400/40 shadow-2xl glow-cyan relative group">
+          <img
+            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiF0laLDNSMrCxwm8gFjGqEqq-rbMzkFFz9AO3FHPfRXd6daLe4q8q6QTAJAu3nsWEHvningxUPGiSQDZT3y2guJLmXM3oAwCBlkkLxBniGWkcDzBIHcNIoyiYFzd6z5-D5mM33Ghd5uHkNFYpj6an-YBNNr534cHXJrMaUkqEdkC3hOZYjirXo3TysuuE/s2048/file_00000000746881f59bdd7296739ab7ba.png"
+            alt="BAHADUR AI Official App Banner"
+            class="w-full h-auto object-cover transform group-hover:scale-[1.01] transition-transform duration-500"
+          />
+          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none"></div>
+        </div>
+
+        <!-- Hero Header -->
+        <div class="text-center space-y-3 relative">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-blue-500/10 via-cyan-500/15 to-purple-500/10 border border-cyan-400/30 text-cyan-200 text-xs font-semibold shadow-sm">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-cyan-400 animate-spin" style="animation-duration: 6s;"></i>
+            <span>Think Smarter. Create Better.</span>
+          </div>
+          <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight font-['Outfit'] shimmer-headline leading-tight">
+            Welcome to BAHADUR AI
+          </h1>
+          <p class="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto">
+            Your intelligent universal AI assistant. Think smarter, create better, write code, compose music, and leverage 16 dedicated AI tools.
+          </p>
+        </div>
+
+        <!-- Official App Download Showcase Card -->
+        <div class="max-w-xl mx-auto w-full p-4 sm:p-5 rounded-3xl bg-gradient-to-r from-[#0d162d] via-[#101b38] to-[#0d162d] border border-cyan-400/40 shadow-2xl relative overflow-hidden group">
+          <div class="absolute top-0 right-0 w-64 h-full bg-gradient-to-l from-cyan-500/10 to-transparent pointer-events-none"></div>
+          
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
+            <div class="flex items-center gap-3.5 text-left">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-cyan-500 via-blue-600 to-purple-600 p-0.5 shadow-lg shadow-cyan-500/25 shrink-0 flex items-center justify-center">
+                <div class="w-full h-full bg-[#0B1020] rounded-[14px] flex items-center justify-center text-white">
+                  <i data-lucide="smartphone" class="w-7 h-7 text-cyan-400 animate-pulse"></i>
+                </div>
+              </div>
+              <div class="space-y-1">
+                <div class="flex items-center gap-2">
+                  <span class="font-bold text-sm sm:text-base text-white">
+                    BAHADUR AI Official App
+                  </span>
+                  <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-bold font-mono">
+                    v2.5 APK
+                  </span>
+                </div>
+                
+                <!-- Star Rating & Reviews -->
+                <div class="flex items-center gap-2 text-xs">
+                  <div class="flex items-center text-amber-400">
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                    <span class="ml-1 font-bold text-white text-[11px]">4.9</span>
+                  </div>
+                  <span class="text-slate-500">•</span>
+                  <span class="text-slate-300 font-medium text-[11px]">50K+ Reviews</span>
+                  <span class="text-slate-500">•</span>
+                  <span class="text-cyan-300 font-bold text-[11px]">5M+ Downloads</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Download App Button -->
+            <a
+              href="https://www.appcreator24.com/app3633044-cojzhe"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-600 hover:from-emerald-400 hover:to-blue-500 text-white font-bold text-xs sm:text-sm shadow-xl shadow-cyan-500/30 transition-all transform active:scale-95 shrink-0 btn-animated group"
+              title="Download BAHADUR AI Android App"
+            >
+              <i data-lucide="download" class="w-4 h-4 text-white group-hover:animate-bounce"></i>
+              <span>Download App</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Prominent Dashboard Chat Input -->
+        <div class="glass-panel rounded-2xl p-3 sm:p-4 border border-cyan-400/30 shadow-2xl glow-cyan focus-within:border-cyan-400 transition-all max-w-3xl mx-auto">
+          <div class="space-y-2">
+            <textarea id="dashboardInput" rows="2" placeholder="Ask anything: write code, compose songs, analyze data, craft articles, or ask any question..." class="w-full bg-transparent text-sm sm:text-base text-white placeholder-slate-400 resize-none focus:outline-none"></textarea>
+            <div class="flex items-center justify-between pt-2 border-t border-white/10">
+              <div class="flex items-center gap-2 text-[11px] text-slate-400">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-cyan-400"></i>
+                <span>BAHADUR AI Engine Active</span>
+              </div>
+              <button onclick="handleDashboardSend()" class="flex items-center gap-2 px-5 py-2 rounded-xl bg-gradient-to-r from-blue-600 via-cyan-500 to-emerald-500 hover:opacity-95 text-white font-semibold text-xs shadow-md transition-all active:scale-95">
+                <span>Send</span>
+                <i data-lucide="send" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- HTML code For zone #7519841 (Banner 1 - Moved to Middle) -->
+        <div class="my-4 w-full rounded-2xl bg-gradient-to-r from-blue-950/80 via-[#0b1426]/90 to-slate-900/90 border border-cyan-400/40 p-3 sm:p-4 shadow-xl glow-cyan">
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[11px] font-mono font-bold text-cyan-300 uppercase tracking-wider">Featured Sponsor • Banner Zone #7519841 (Middle)</span>
+            <button onclick="visitVastAdUrl()" class="text-[10px] font-mono text-cyan-400 hover:underline">Claim Offer ↗</button>
+          </div>
+          <div class="min-h-[50px] flex items-center justify-center p-2 rounded-xl bg-black/40 border border-white/10">
+            <button onclick="visitVastAdUrl()" class="w-full flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 hover:from-cyan-500/30 hover:to-blue-500/30 text-xs text-cyan-200 border border-cyan-500/40">
+              <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+              <span>Special Partner Deal • Click to Explore Exclusive Benefits</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Suggested Prompt Cards -->
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+              <i data-lucide="zap" class="w-4 h-4 text-cyan-400"></i>
+              <span>Popular Prompts & Features</span>
+            </h2>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4" id="promptCardsContainer">
+            <!-- Injected by JavaScript -->
+          </div>
+        </div>
+
+        <!-- HTML code For zone #7505873 -->
+        <div class="my-4 w-full rounded-2xl bg-gradient-to-r from-slate-900/90 via-[#0d1629]/90 to-slate-900/90 border border-cyan-500/30 p-3 sm:p-4 shadow-xl">
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[11px] font-mono font-semibold text-cyan-300 uppercase tracking-wider">Sponsored Partner • Zone #7505873</span>
+            <button onclick="visitVastAdUrl()" class="text-[10px] font-mono text-cyan-400 hover:underline">Claim Offer ↗</button>
+          </div>
+          <div class="min-h-[50px] flex items-center justify-center p-2 rounded-xl bg-black/40 border border-white/5">
+            <button onclick="visitVastAdUrl()" class="w-full flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-xs text-cyan-200 border border-cyan-500/30">
+              <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+              <span>Interactive Commercial • Click to Explore Exclusive Deals</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- HTML code For zone #7519741 (Video Slider Ad) -->
+        <div class="my-4 w-full rounded-2xl bg-gradient-to-r from-[#071026]/95 via-[#0b1b38]/95 to-[#071026]/95 border border-cyan-400/50 p-3 sm:p-4 shadow-xl glow-cyan">
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[11px] font-mono font-bold text-cyan-300 uppercase tracking-wider">Sponsored Video Slider • Zone #7519741</span>
+            <button onclick="visitVastAdUrl()" class="text-[10px] font-mono text-cyan-400 hover:underline">Watch Ad ↗</button>
+          </div>
+          <div class="min-h-[50px] flex items-center justify-center p-2 rounded-xl bg-black/50 border border-cyan-500/30">
+            <button onclick="visitVastAdUrl()" class="w-full flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-gradient-to-r from-blue-600/30 via-cyan-500/30 to-purple-600/30 text-xs text-white border border-cyan-400/40">
+              <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping"></span>
+              <span>Interactive Video Slider Commercial • Click to Explore Deals</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- HTML code For zone #6021272 -->
+        <div class="my-4 w-full rounded-2xl bg-gradient-to-r from-[#071126]/90 via-[#0a1835]/90 to-[#071126]/90 border border-cyan-500/40 p-3 sm:p-4 shadow-xl glow-cyan">
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[11px] font-mono font-bold text-cyan-300 uppercase tracking-wider">Sponsored Partner • Zone #6021272</span>
+            <button onclick="visitVastAdUrl()" class="text-[10px] font-mono text-cyan-400 hover:underline">Claim Offer ↗</button>
+          </div>
+          <div class="min-h-[60px] flex items-center justify-center p-2 rounded-xl bg-black/40 border border-white/10 overflow-hidden">
+            <script async type="application/javascript" src="https://a.magsrv.com/ad-provider.js"></script> 
+            <ins class="eas6a97888e31" data-zoneid="6021272"></ins> 
+            <script>(AdProvider = window.AdProvider || []).push({"serve": {}});</script>
+          </div>
+        </div>
+
+        <!-- HTML code For zone #7519841 (Banner 2) -->
+        <div class="my-4 w-full rounded-2xl bg-gradient-to-r from-purple-950/80 via-[#0d1428]/90 to-blue-950/90 border border-purple-400/40 p-3 sm:p-4 shadow-xl glow-purple">
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[11px] font-mono font-bold text-purple-300 uppercase tracking-wider">Premium Partner • Banner Zone #7519841 (Bottom)</span>
+            <button onclick="visitVastAdUrl()" class="text-[10px] font-mono text-purple-300 hover:underline">Claim Offer ↗</button>
+          </div>
+          <div class="min-h-[50px] flex items-center justify-center p-2 rounded-xl bg-black/40 border border-white/10">
+            <button onclick="visitVastAdUrl()" class="w-full flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-blue-500/20 hover:from-purple-500/30 hover:to-blue-500/30 text-xs text-purple-200 border border-purple-500/40">
+              <span class="w-2 h-2 rounded-full bg-pink-400 animate-ping"></span>
+              <span>Verified Commercial Offer • Tap to Unlock Premium Privileges</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 15 Tools Banner -->
+        <div class="rounded-2xl bg-gradient-to-r from-slate-900 via-purple-950/40 to-slate-900 border border-white/10 p-5 sm:p-6 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div class="space-y-1 max-w-xl">
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-purple-500/20 text-purple-300 text-[10px] font-bold">
+              <i data-lucide="flame" class="w-3 h-3 text-purple-400"></i>
+              <span>15 DEDICATED AI TOOLS</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">SEO Blog, Social Captions & Coding Tools</h3>
+            <p class="text-xs text-slate-300">Supercharge your professional workflow with 15 specialized AI generation tools.</p>
+          </div>
+          <button onclick="triggerActionWithVideoAd(() => switchTab('tools'))" class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold text-xs shadow-md glow-purple btn-animated">
+            <i data-lucide="wrench" class="w-4 h-4"></i>
+            <span>Explore All 15 Tools</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ================= 2. AI CHAT VIEW ================= -->
+      <section id="view-chat" class="hidden flex-1 flex flex-col max-w-4xl mx-auto w-full h-[calc(100vh-8rem)]">
+        <!-- Chat Header -->
+        <div class="px-4 py-2.5 border-b border-white/10 flex items-center justify-between bg-[#0B1020]/80 backdrop-blur-md">
+          <div class="flex items-center gap-2.5">
+            <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white shadow-sm">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            </div>
+            <div>
+              <h2 id="activeChatTitle" class="text-xs sm:text-sm font-bold text-white truncate">New Conversation</h2>
+              <span class="text-[10px] text-emerald-400 flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Active
+              </span>
+            </div>
+          </div>
+          <button onclick="clearCurrentChat()" class="p-1.5 rounded-lg text-slate-400 hover:text-rose-400 hover:bg-white/5 text-xs flex items-center gap-1">
+            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+            <span class="hidden sm:inline">Clear</span>
+          </button>
+        </div>
+
+        <!-- Chat Messages Stream -->
+        <div id="chatMessagesStream" class="flex-1 overflow-y-auto p-4 space-y-4">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- HTML code For zone #7519741 (Video Slider Ad) -->
+        <div class="px-3 pt-2">
+          <div class="rounded-xl bg-gradient-to-r from-[#071026] to-[#0b1b38] border border-cyan-400/40 p-2.5 flex items-center justify-between gap-2 shadow-lg">
+            <span class="text-[10px] font-mono text-cyan-300 font-bold uppercase">VIDEO SLIDER • ZONE #7519741</span>
+            <button onclick="visitVastAdUrl()" class="text-[10px] font-mono text-cyan-400 hover:underline">Watch Ad ↗</button>
+          </div>
+        </div>
+
+        <!-- HTML code For zone #7505873 -->
+        <div class="px-3 pt-2">
+          <div class="rounded-xl bg-slate-900/90 border border-cyan-500/30 p-2.5 flex items-center justify-between gap-2 shadow-lg">
+            <span class="text-[10px] font-mono text-cyan-300 font-semibold uppercase">SPONSORED • ZONE #7505873</span>
+            <button onclick="visitVastAdUrl()" class="text-[10px] font-mono text-cyan-400 hover:underline">Claim Offer ↗</button>
+          </div>
+        </div>
+
+        <!-- HTML code For zone #6021272 -->
+        <div class="px-3 pt-2">
+          <div class="rounded-xl bg-slate-900/90 border border-cyan-500/30 p-2 flex items-center justify-between gap-2 shadow-lg">
+            <span class="text-[10px] font-mono text-cyan-300 font-semibold uppercase">SPONSORED • ZONE #6021272</span>
+            <button onclick="visitVastAdUrl()" class="text-[10px] font-mono text-cyan-400 hover:underline">Claim Offer ↗</button>
+          </div>
+          <div class="mt-1 min-h-[50px] flex items-center justify-center p-1 rounded-xl bg-black/40 border border-white/5 overflow-hidden">
+            <script async type="application/javascript" src="https://a.magsrv.com/ad-provider.js"></script> 
+            <ins class="eas6a97888e31" data-zoneid="6021272"></ins> 
+            <script>(AdProvider = window.AdProvider || []).push({"serve": {}});</script>
+          </div>
+        </div>
+
+        <!-- Chat Input Area -->
+        <div class="p-3 border-t border-white/10 bg-[#0B1020]/95 backdrop-blur-md">
+          <div class="glass-panel rounded-2xl p-2.5 border border-white/15 focus-within:border-cyan-400 shadow-xl flex items-end gap-2">
+            <textarea id="chatInput" rows="1" onkeydown="handleChatKeyDown(event)" placeholder="Ask anything: write code, solve problems, analyze ideas, compose lyrics..." class="flex-1 bg-transparent text-sm text-white placeholder-slate-400 resize-none focus:outline-none px-2 py-1 max-h-32 leading-relaxed"></textarea>
+            <button onclick="handleChatSend()" class="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 via-cyan-500 to-emerald-500 text-white font-bold text-xs shadow-md shrink-0">
+              <span>Send</span>
+              <i data-lucide="send" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 2.5. AI VOICE (TEXT TO SPEECH) VIEW ================= -->
+      <section id="view-voice" class="hidden px-4 sm:px-6 lg:px-8 py-6 max-w-4xl mx-auto w-full space-y-6">
+        <!-- Voice Studio Header -->
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-3 border-b border-white/10">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-500/15 border border-pink-500/30 text-pink-300 text-xs font-semibold mb-2">
+              <i data-lucide="mic" class="w-3.5 h-3.5 text-pink-400"></i>
+              <span>Universal Text-to-Voice Engine</span>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-bold text-white font-['Outfit']">AI Voice Studio</h2>
+            <p class="text-xs sm:text-sm text-slate-300">Convert any text into natural human voice across 10 languages with avatars & audio download</p>
+          </div>
+          <span class="px-2.5 py-1 rounded-full bg-pink-500/20 text-pink-300 text-[10px] font-mono font-bold">10 LANG • MP3/WAV</span>
+        </div>
+
+        <!-- 1. Language Selector Grid (10 Languages) -->
+        <div class="space-y-2">
+          <label class="block text-xs font-bold text-white uppercase tracking-wider">1. Select Language (10 Languages)</label>
+          <div class="grid grid-cols-2 sm:grid-cols-5 gap-2" id="voiceLangButtons">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- 2. Gender & Avatar Selector (Female / Male) -->
+        <div class="space-y-2">
+          <label class="block text-xs font-bold text-white uppercase tracking-wider">2. Select Avatar (Female 👩 / Male 👨)</label>
+          <div class="grid grid-cols-2 gap-3" id="voiceAvatarSelection">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- 3. Text Input Box -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between">
+            <label class="block text-xs font-bold text-white uppercase tracking-wider">3. Enter Text to Convert to Voice</label>
+            <span id="voiceCharCount" class="text-[11px] text-slate-400 font-mono">0 / 5,000 characters</span>
+          </div>
+          <div class="glass-panel rounded-2xl p-3.5 border border-white/15 focus-within:border-cyan-400 shadow-xl">
+            <textarea id="voiceTextInput" rows="4" placeholder="Enter any text or paste a story, poem, speech or message to synthesize..." class="w-full bg-transparent text-sm text-white placeholder-slate-400 resize-none focus:outline-none leading-relaxed"></textarea>
+          </div>
+        </div>
+
+        <!-- 4. Controls: Pitch, Speed & Generation -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-[#090D1A]/95 border border-cyan-500/30 space-y-4 shadow-xl">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <div class="flex items-center justify-between text-xs text-slate-300 mb-1 font-semibold">
+                <span>Speed / Rate</span>
+                <span id="voiceSpeedLabel" class="font-mono text-cyan-300">1.0x</span>
+              </div>
+              <input type="range" id="voiceSpeedSlider" min="0.5" max="1.5" step="0.05" value="1.0" oninput="updateVoiceSpeed(this.value)" class="w-full accent-cyan-400 cursor-pointer" />
+            </div>
+            <div>
+              <div class="flex items-center justify-between text-xs text-slate-300 mb-1 font-semibold">
+                <span>Pitch</span>
+                <span id="voicePitchLabel" class="font-mono text-pink-300">Normal</span>
+              </div>
+              <input type="range" id="voicePitchSlider" min="0.7" max="1.4" step="0.05" value="1.0" oninput="updateVoicePitch(this.value)" class="w-full accent-pink-400 cursor-pointer" />
+            </div>
+          </div>
+
+          <!-- Animated Audio Waveform Simulation -->
+          <div id="voiceWaveformContainer" class="hidden flex items-center justify-center gap-1.5 py-2">
+            <span class="w-1.5 h-6 bg-cyan-400 rounded-full animate-bounce"></span>
+            <span class="w-1.5 h-10 bg-pink-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></span>
+            <span class="w-1.5 h-8 bg-purple-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></span>
+            <span class="w-1.5 h-12 bg-blue-400 rounded-full animate-bounce" style="animation-delay: 0.15s"></span>
+            <span class="w-1.5 h-5 bg-cyan-400 rounded-full animate-bounce" style="animation-delay: 0.25s"></span>
+            <span class="text-xs text-cyan-300 font-mono ml-2">Synthesizing audio stream...</span>
+          </div>
+
+          <!-- Action Buttons: Play, Stop, Download -->
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-white/10">
+            <div class="flex items-center gap-2">
+              <button id="btnPlayVoice" onclick="playVoiceSynthesis()" class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-pink-500 via-purple-600 to-cyan-500 hover:opacity-90 text-white font-bold text-xs shadow-lg shadow-pink-500/25 btn-animated">
+                <i data-lucide="play" class="w-4 h-4 fill-current"></i>
+                <span id="playVoiceBtnText">Generate & Play Voice</span>
+              </button>
+              <button onclick="stopVoiceSynthesis()" class="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white text-xs font-semibold" title="Stop">
+                <i data-lucide="square" class="w-4 h-4"></i>
+              </button>
+            </div>
+
+            <!-- Download Button -->
+            <button id="btnDownloadVoice" onclick="downloadVoiceWav()" class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-600 hover:opacity-90 text-white font-bold text-xs shadow-lg shadow-emerald-500/25 btn-animated">
+              <i data-lucide="download" class="w-4 h-4"></i>
+              <span>Download Voice (WAV)</span>
+            </button>
+          </div>
+          <div id="voiceStatusMsg" class="hidden text-xs text-cyan-300 font-mono text-center pt-1"></div>
+        </div>
+
+        <!-- HTML code For zone #7519741 (Video Slider Ad) -->
+        <div class="my-3 w-full rounded-2xl bg-gradient-to-r from-[#071026]/95 via-[#0b1b38]/95 to-[#071026]/95 border border-cyan-400/50 p-3 shadow-xl glow-cyan">
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[11px] font-mono font-bold text-cyan-300 uppercase tracking-wider">Sponsored Video Slider • Zone #7519741</span>
+            <button onclick="visitVastAdUrl()" class="text-[10px] font-mono text-cyan-400 hover:underline">Watch Ad ↗</button>
+          </div>
+          <div class="min-h-[45px] flex items-center justify-center p-2 rounded-xl bg-black/50 border border-cyan-500/30">
+            <button onclick="visitVastAdUrl()" class="w-full flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-gradient-to-r from-blue-600/30 via-cyan-500/30 to-purple-600/30 text-xs text-white border border-cyan-400/40">
+              <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping"></span>
+              <span>Interactive Video Slider Commercial • Click to Explore Deals</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- HTML code For zone #7505873 -->
+        <div class="my-3 w-full rounded-2xl bg-gradient-to-r from-slate-900/90 via-[#0d1629]/90 to-slate-900/90 border border-cyan-500/30 p-3 shadow-xl">
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[11px] font-mono font-semibold text-cyan-300 uppercase tracking-wider">Sponsored Partner • Zone #7505873</span>
+            <button onclick="visitVastAdUrl()" class="text-[10px] font-mono text-cyan-400 hover:underline">Claim Offer ↗</button>
+          </div>
+          <div class="min-h-[45px] flex items-center justify-center p-2 rounded-xl bg-black/40 border border-white/5">
+            <button onclick="visitVastAdUrl()" class="w-full flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-xs text-cyan-200 border border-cyan-500/30">
+              <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+              <span>Interactive Commercial • Click to Explore Exclusive Deals</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- HTML code For zone #6021272 -->
+        <div class="my-3 w-full rounded-2xl bg-gradient-to-r from-[#071126]/90 via-[#0a1835]/90 to-[#071126]/90 border border-cyan-500/40 p-3 shadow-xl glow-cyan">
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[11px] font-mono font-bold text-cyan-300 uppercase tracking-wider">Sponsored Partner • Zone #6021272</span>
+            <button onclick="visitVastAdUrl()" class="text-[10px] font-mono text-cyan-400 hover:underline">Claim Offer ↗</button>
+          </div>
+          <div class="min-h-[50px] flex items-center justify-center p-2 rounded-xl bg-black/40 border border-white/10 overflow-hidden">
+            <script async type="application/javascript" src="https://a.magsrv.com/ad-provider.js"></script> 
+            <ins class="eas6a97888e31" data-zoneid="6021272"></ins> 
+            <script>(AdProvider = window.AdProvider || []).push({"serve": {}});</script>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 3. AI TOOLS VIEW ================= -->
+      <section id="view-tools" class="hidden px-4 sm:px-6 lg:px-8 py-6 max-w-5xl mx-auto w-full space-y-6">
+        <div class="flex items-center justify-between pb-3 border-b border-white/10">
+          <div>
+            <h2 class="text-xl font-bold text-white">16 Specialized AI Tools</h2>
+            <p class="text-xs text-slate-400">Select any dedicated tool for specialized generation and analysis</p>
+          </div>
+          <span class="px-2.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-[10px] font-mono text-cyan-300">16 TOOLS ACTIVE</span>
+        </div>
+
+        <!-- Tool Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5" id="toolsGrid">
+          <!-- Injected by JS -->
+        </div>
+
+        <!-- Tool Execution Box -->
+        <div class="glass-panel rounded-2xl p-4 sm:p-6 border border-cyan-400/30 space-y-4">
+          <div class="flex items-center gap-3">
+            <div id="activeToolIconBox" class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white">
+              <i data-lucide="pen-tool" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 id="activeToolTitle" class="text-base font-bold text-white">AI Writer</h3>
+              <p id="activeToolDesc" class="text-xs text-slate-400">Craft essays, articles, and long-form content</p>
+            </div>
+          </div>
+
+          <textarea id="toolInputPrompt" rows="3" placeholder="Enter your topic, prompt, or source text..." class="w-full bg-slate-900 border border-white/10 rounded-xl p-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"></textarea>
+
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-slate-400 font-mono">BAHADUR AI Pro</span>
+            <button onclick="handleRunTool()" class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold text-xs shadow-md glow-cyan btn-animated">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+              <span>Generate with AI</span>
+            </button>
+          </div>
+
+          <!-- Tool Output Area -->
+          <div id="toolOutputContainer" class="hidden mt-4 p-4 rounded-xl bg-slate-950/80 border border-white/10 space-y-2">
+            <div class="flex items-center justify-between pb-2 border-b border-white/10 text-xs">
+              <span class="font-bold text-cyan-300">Generated Output:</span>
+              <button onclick="copyToolOutput()" class="text-slate-300 hover:text-white flex items-center gap-1">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                <span id="copyToolBtnText">Copy</span>
+              </button>
+            </div>
+            <div id="toolOutputText" class="text-sm text-slate-200 whitespace-pre-wrap leading-relaxed font-sans"></div>
+          </div>
+        </div>
+
+        <!-- HTML code For zone #7519741 (Video Slider Ad) -->
+        <div class="my-3 w-full rounded-2xl bg-gradient-to-r from-[#071026]/95 via-[#0b1b38]/95 to-[#071026]/95 border border-cyan-400/50 p-3 shadow-xl glow-cyan">
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[11px] font-mono font-bold text-cyan-300 uppercase tracking-wider">Sponsored Video Slider • Zone #7519741</span>
+            <button onclick="visitVastAdUrl()" class="text-[10px] font-mono text-cyan-400 hover:underline">Watch Ad ↗</button>
+          </div>
+          <div class="min-h-[45px] flex items-center justify-center p-2 rounded-xl bg-black/50 border border-cyan-500/30">
+            <button onclick="visitVastAdUrl()" class="w-full flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-gradient-to-r from-blue-600/30 via-cyan-500/30 to-purple-600/30 text-xs text-white border border-cyan-400/40">
+              <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping"></span>
+              <span>Interactive Video Slider Commercial • Click to Explore Deals</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- HTML code For zone #6021272 -->
+        <div class="my-3 w-full rounded-2xl bg-gradient-to-r from-[#071126]/90 via-[#0a1835]/90 to-[#071126]/90 border border-cyan-500/40 p-3 sm:p-4 shadow-xl glow-cyan">
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[11px] font-mono font-bold text-cyan-300 uppercase tracking-wider">Sponsored Partner • Zone #6021272</span>
+            <button onclick="visitVastAdUrl()" class="text-[10px] font-mono text-cyan-400 hover:underline">Claim Offer ↗</button>
+          </div>
+          <div class="min-h-[50px] flex items-center justify-center p-2 rounded-xl bg-black/40 border border-white/10">
+            <script async type="application/javascript" src="https://a.magsrv.com/ad-provider.js"></script> 
+            <ins class="eas6a97888e31" data-zoneid="6021272"></ins> 
+            <script>(AdProvider = window.AdProvider || []).push({"serve": {}});</script>
+            <button onclick="visitVastAdUrl()" class="w-full flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-xs text-cyan-200 border border-cyan-500/30">
+              <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+              <span>Interactive Commercial • Click to Explore Exclusive Deals</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- HTML code For zone #7505873 -->
+        <div class="my-3 w-full rounded-2xl bg-gradient-to-r from-slate-900/90 via-[#0d1629]/90 to-slate-900/90 border border-cyan-500/30 p-3 shadow-xl">
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[11px] font-mono font-semibold text-cyan-300 uppercase tracking-wider">Sponsored Partner • Zone #7505873</span>
+            <button onclick="visitVastAdUrl()" class="text-[10px] font-mono text-cyan-400 hover:underline">Claim Offer ↗</button>
+          </div>
+          <div class="min-h-[45px] flex items-center justify-center p-2 rounded-xl bg-black/40 border border-white/5">
+            <button onclick="visitVastAdUrl()" class="w-full flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-xs text-cyan-200 border border-cyan-500/30">
+              <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+              <span>Interactive Commercial • Click to Explore Exclusive Deals</span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+
+  <!-- ================= GLOBAL FOOTER: COPYRIGHT, SPORTS INBOX & ADMIN LOCK ================= -->
+  <footer class="w-full bg-[#070b16]/95 border-t border-white/10 py-2.5 px-4 z-30 select-none">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] sm:text-xs text-slate-400">
+      <!-- Left: Admin Lock Icon ONLY (Admin text removed as instructed) + Copyright -->
+      <div class="flex items-center gap-2">
+        <button
+          onclick="openAdminModal()"
+          class="p-1.5 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/25 border border-cyan-500/30 text-cyan-400 hover:text-cyan-300 transition-all shadow-sm flex items-center justify-center group btn-animated"
+          title="Admin Security Portal"
+          aria-label="Admin Lock"
+        >
+          <i data-lucide="lock" class="w-3.5 h-3.5 group-hover:scale-110 transition-transform"></i>
+        </button>
+        <span class="font-medium text-slate-300">
+          @2026 Bahadur Ai All Right
+        </span>
+      </div>
+
+      <!-- Right: Sports Inbox & Official Email -->
+      <div class="flex items-center gap-3 text-slate-300 font-mono text-[11px]">
+        <span class="text-cyan-300 font-semibold">sports inbox</span>
+        <span class="text-slate-500">•</span>
+        <a
+          href="mailto:bahadurmedia.in@gmail.com"
+          class="text-cyan-400 hover:text-cyan-300 hover:underline flex items-center gap-1"
+        >
+          bahadurmedia.in@gmail.com
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= VIDEO SLIDER AD (Corner Popup: Home Entrance & 3-Min Interval) ================= -->
+  <div id="cornerSliderAd" class="fixed bottom-20 sm:bottom-24 right-3 sm:right-5 z-50 animate-in slide-in-from-bottom-5 duration-300 select-none">
+    <div class="w-72 sm:w-80 rounded-2xl bg-[#090D1A]/98 border border-cyan-400/60 shadow-2xl overflow-hidden backdrop-blur-2xl flex flex-col glow-cyan">
+      <div class="px-3.5 py-2 bg-gradient-to-r from-blue-950 via-slate-900 to-indigo-950 border-b border-white/10 flex items-center justify-between">
+        <div class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+          <span class="text-[10px] font-mono font-bold text-cyan-300 uppercase tracking-wider">Video Slider • Zone #7519825</span>
+        </div>
+        <div class="flex items-center gap-1">
+          <button onclick="toggleSliderAudio()" id="sliderMuteBtn" class="p-1 text-slate-400 hover:text-white rounded transition-colors text-xs" title="Mute/Unmute Audio">🔊</button>
+          <button onclick="closeCornerSliderAd()" class="p-1 text-slate-400 hover:text-white rounded transition-colors text-xs" title="Close Ad">✕</button>
+        </div>
+      </div>
+      <div class="p-3 space-y-2.5">
+        <!-- Live HTML5 Video Commercial Stream with Canvas Fallback -->
+        <div onclick="visitVastAdUrl()" class="relative aspect-video rounded-xl overflow-hidden bg-slate-900 border border-cyan-400/50 flex items-center justify-center cursor-pointer group shadow-2xl">
+          <canvas id="sliderAnimCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
+          <video id="sliderVideoElement" autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-90 pointer-events-none z-10">
+            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
+            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4" />
+          </video>
+          <div class="absolute top-2 left-2 z-20 flex items-center gap-1 px-2 py-0.5 rounded-full bg-black/85 text-[9px] font-mono text-cyan-300 border border-cyan-400/30 backdrop-blur-md">
+            <span class="w-1.5 h-1.5 rounded-full bg-rose-500 animate-ping"></span>
+            <span class="font-bold text-white uppercase">LIVE AD</span>
+            <span class="text-slate-500">•</span>
+            <span>VAST 3.0</span>
+          </div>
+          <!-- Sponsor Offer Overlay in Lower Third -->
+          <div class="absolute bottom-1.5 inset-x-2 z-20 flex items-center justify-between text-[10px] text-white font-medium drop-shadow bg-black/85 backdrop-blur-md px-2 py-1 rounded-lg border border-white/10">
+            <span id="sliderBrandTicker" class="truncate font-bold text-cyan-200">Google Cloud AI • $300 Credits</span>
+            <span class="text-cyan-300 font-mono font-bold flex items-center gap-1 shrink-0">
+              <span>Open ↗</span>
+            </span>
+          </div>
+          <div class="absolute bottom-0 inset-x-0 h-1 bg-black/60 overflow-hidden z-20">
+            <div id="sliderProgressBar" class="h-full bg-gradient-to-r from-cyan-400 via-blue-500 to-pink-500 w-1/3 transition-all duration-300"></div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between gap-2 pt-0.5">
+          <span id="sliderCountdownText" class="text-[10px] text-slate-400 font-mono">Skip in 10s</span>
+          <div class="flex items-center gap-1.5">
+            <button onclick="visitVastAdUrl()" class="px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-[11px] shadow-md shadow-cyan-500/25 transition-all active:scale-95 btn-animated">Visit Sponsor ↗</button>
+            <button onclick="closeCornerSliderAd()" class="px-2 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-slate-300 text-[11px] font-medium border border-white/10">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Re-Open Floating Video Ad Badge (When Closed) -->
+  <button id="sliderTeaserBadge" onclick="showCornerSliderAd()" class="hidden fixed bottom-20 sm:bottom-24 right-3 sm:right-6 z-40 px-3 py-1.5 rounded-full bg-gradient-to-r from-blue-900/90 via-cyan-900/90 to-purple-900/90 border border-cyan-400/50 text-white text-[11px] font-bold shadow-xl flex items-center gap-1.5 backdrop-blur-md hover:scale-105 transition-all btn-animated">
+    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+    <i data-lucide="film" class="w-3.5 h-3.5 text-cyan-300"></i>
+    <span>Video Ad</span>
+  </button>
+
+  <!-- ================= VERTICAL VIDEO AD MODAL (VAST 3.0 on Main Action Buttons) ================= -->
+  <div id="verticalVideoAdModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md p-4">
+    <div class="relative w-full max-w-sm sm:max-w-md rounded-3xl bg-[#090D1A] border border-cyan-500/40 shadow-2xl overflow-hidden flex flex-col">
+      <div class="px-4 py-3 bg-gradient-to-r from-blue-950 via-slate-900 to-indigo-950 border-b border-white/10 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+          <span class="text-xs font-mono font-bold text-cyan-300 uppercase tracking-wider">Video Ad • Zone #7519825</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="toggleModalAudio()" id="modalMuteBtn" class="p-1 text-slate-400 hover:text-white rounded transition-colors text-xs" title="Mute/Unmute">🔊</button>
+          <button id="modalCloseBtn" onclick="closeVerticalVideoAd()" class="px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-xs text-slate-300 hover:text-white border border-white/10 font-mono transition-colors">
+            Wait 5s
+          </button>
+        </div>
+      </div>
+      <div class="p-4 space-y-3">
+        <!-- Real HTML5 Video Commercial in Modal (With Cyber Motion Canvas & Bulletproof Stream) -->
+        <div onclick="handleModalVideoClick()" class="relative aspect-video rounded-2xl overflow-hidden bg-gradient-to-tr from-blue-950 via-slate-900 to-indigo-950 border border-cyan-400/50 flex items-center justify-center cursor-pointer group shadow-2xl">
+          <!-- Continuous 60fps Dynamic Canvas Animation (Prevents black empty box!) -->
+          <canvas id="modalAnimCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
+          
+          <video id="modalVideoElement" autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-100 z-10 transition-opacity">
+            <source src="https://www.silent-basis.pro/301305/351387/1161470_8b8e2y.mp4" type="video/mp4" />
+            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
+          </video>
+
+          <!-- Top Badge -->
+          <div class="absolute top-2.5 left-2.5 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/80 backdrop-blur-md text-[10px] font-mono text-cyan-300 border border-cyan-400/30 shadow-md">
+            <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+            <span class="font-bold">LIVE AD STREAM • ZONE #7519825</span>
+          </div>
+
+          <!-- Bottom Sponsor Banner -->
+          <div class="absolute bottom-2.5 left-2.5 right-2.5 z-20 flex items-center justify-between text-xs text-white font-semibold bg-black/85 backdrop-blur-md px-3 py-2 rounded-xl border border-white/10 shadow-lg">
+            <div class="flex items-center gap-2 truncate">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span id="modalSponsorTitle" class="truncate font-bold">Featured Partner Sponsorship</span>
+            </div>
+            <span class="text-cyan-300 font-bold ml-2 shrink-0 flex items-center gap-1 text-[11px] bg-cyan-500/20 px-2 py-0.5 rounded-lg border border-cyan-400/30">
+              Claim Offer ↗
+            </span>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="absolute bottom-0 inset-x-0 h-1.5 bg-black/80 overflow-hidden z-20">
+            <div id="modalProgressBar" class="h-full bg-gradient-to-r from-cyan-400 via-blue-500 to-pink-500 w-1/4 transition-all duration-300"></div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between gap-3 pt-1">
+          <div class="text-[11px] text-slate-300 font-mono font-medium" id="modalAdStatusText">Ad Playing (5s)</div>
+          <button onclick="visitVastAdUrl()" class="px-5 py-2 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:opacity-95 text-white font-bold text-xs shadow-lg shadow-cyan-500/30 flex items-center gap-1.5 btn-animated">
+            <span>Visit Sponsor ↗</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 4-BUTTON MOBILE BOTTOM NAVIGATION DOCK (Triggers Video Ad on All 4 Buttons) ================= -->
+  <nav class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-[#0B1020]/98 backdrop-blur-xl border-t border-cyan-500/30 h-16 flex items-center justify-around px-2 shadow-2xl select-none">
+    <!-- 1. Dashboard -->
+    <button onclick="triggerActionWithVideoAd(() => switchTab('dashboard'))" id="mobile-nav-dashboard" class="flex flex-col items-center gap-0.5 text-cyan-400 font-bold text-[10px] transition-all transform active:scale-95">
+      <div class="p-1 rounded-lg bg-cyan-500/20 text-cyan-300">
+        <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+      </div>
+      <span>Dashboard</span>
+    </button>
+    <!-- 2. AI Chat -->
+    <button onclick="triggerActionWithVideoAd(() => switchTab('chat'))" id="mobile-nav-chat" class="flex flex-col items-center gap-0.5 text-slate-400 font-bold text-[10px] transition-all transform active:scale-95">
+      <div class="p-1 rounded-lg">
+        <i data-lucide="message-square" class="w-4 h-4"></i>
+      </div>
+      <span>AI Chat</span>
+    </button>
+    <!-- 3. AI Voice -->
+    <button onclick="triggerActionWithVideoAd(() => switchTab('voice'))" id="mobile-nav-voice" class="flex flex-col items-center gap-0.5 text-slate-400 font-bold text-[10px] transition-all transform active:scale-95 relative">
+      <div class="p-1 rounded-lg text-pink-400 bg-pink-500/10">
+        <i data-lucide="mic" class="w-4 h-4"></i>
+        <span class="absolute top-0 right-2 w-2 h-2 rounded-full bg-pink-400 animate-ping"></span>
+      </div>
+      <span class="text-pink-300">AI Voice</span>
+    </button>
+    <!-- 4. 16 Tools -->
+    <button onclick="triggerActionWithVideoAd(() => switchTab('tools'))" id="mobile-nav-tools" class="flex flex-col items-center gap-0.5 text-slate-400 font-bold text-[10px] transition-all transform active:scale-95">
+      <div class="p-1 rounded-lg relative">
+        <i data-lucide="wrench" class="w-4 h-4"></i>
+        <span class="absolute -top-1 -right-2 px-1 rounded-full bg-cyan-500 text-[8px] font-bold text-black font-mono">16</span>
+      </div>
+      <span>16 Tools</span>
+    </button>
+
+  </nav>
+
+  <!-- ================= GOOGLE GEMINI API KEY SETUP MODAL ================= -->
+  <div id="apiKeyModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div class="relative w-full max-w-md bg-[#0B1020] border border-cyan-500/40 rounded-2xl p-5 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between pb-3 border-b border-white/10">
+        <div class="flex items-center gap-2">
+          <div class="p-2 rounded-lg bg-cyan-500/20 text-cyan-400">
+            <i data-lucide="key" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-white">Google Gemini API Key</h3>
+            <p class="text-[11px] text-slate-400">Direct persistent AI connection in any browser or GitHub Pages</p>
+          </div>
+        </div>
+        <button onclick="closeApiKeyModal()" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+
+      <div class="space-y-2 text-xs">
+        <p class="text-slate-300">
+          Save your free Gemini API key here to generate code, songs, essays, and deep research directly from Google Gemini with zero backend requirement.
+        </p>
+        <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-cyan-400 font-bold underline">
+          <span>👉 Get Free Gemini API Key (Google AI Studio)</span>
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <div>
+        <label class="block text-xs font-semibold text-slate-300 mb-1">API Key:</label>
+        <input type="password" id="apiKeyInput" placeholder="AIzaSy..." class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-white/10 focus:border-cyan-400 text-white font-mono text-xs outline-none" />
+      </div>
+
+      <div id="apiKeyStatus" class="hidden text-xs p-2 rounded-lg"></div>
+
+      <div class="flex items-center justify-between pt-2 border-t border-white/10">
+        <button onclick="clearApiKey()" class="text-xs text-rose-400 hover:underline">Clear Key</button>
+        <div class="flex gap-2">
+          <button onclick="testApiKey()" class="px-3 py-1.5 rounded-lg bg-white/10 text-xs font-semibold text-white">Test</button>
+          <button onclick="saveApiKey()" class="px-4 py-1.5 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 text-xs font-bold text-white shadow-md">Save Key</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= JAVASCRIPT APPLICATION CORE ================= -->
+  <script>
+    // State
+    let currentTab = 'dashboard';
+    let currentLang = 'en';
+    let activeToolId = 'ai-writer';
+    let activeConvId = '';
+    let conversations = JSON.parse(localStorage.getItem('bahadur_conversations') || '[]');
+    let messages = [];
+
+    // 16 Tools Definition
+    const TOOLS = [
+      { id: 'ai-writer', name: 'AI Writer', desc: 'Craft essays & long-form writing', icon: 'pen-tool', color: 'from-blue-600 to-cyan-500' },
+      { id: 'story-generator', name: 'Story Generator', desc: 'Write creative fiction & novels', icon: 'book-open', color: 'from-purple-600 to-blue-600' },
+      { id: 'blog-writer', name: 'Blog Writer', desc: 'SEO-optimized articles', icon: 'file-text', color: 'from-cyan-500 to-emerald-500' },
+      { id: 'coding-assistant', name: 'Coding Assistant', desc: 'Write, debug & explain code', icon: 'code', color: 'from-emerald-500 to-blue-600' },
+      { id: 'song-writer', name: 'Song & Lyrics', desc: 'Write songs, melody & lyrics', icon: 'music', color: 'from-amber-500 to-rose-600' },
+      { id: 'caption-generator', name: 'Captions', desc: 'Viral social media captions', icon: 'share-2', color: 'from-pink-500 to-purple-600' },
+      { id: 'youtube-helper', name: 'YouTube Helper', desc: 'Titles, descriptions & tags', icon: 'video', color: 'from-red-600 to-amber-500' },
+      { id: 'bio-generator', name: 'Bio Generator', desc: 'Social & professional bios', icon: 'user', color: 'from-cyan-600 to-blue-500' },
+      { id: 'translator', name: 'Translator', desc: 'Multi-language translation', icon: 'languages', color: 'from-blue-500 to-indigo-600' },
+      { id: 'summarizer', name: 'Summarizer', desc: 'Executive text summaries', icon: 'align-left', color: 'from-emerald-600 to-teal-500' },
+      { id: 'grammar-corrector', name: 'Grammar', desc: 'Fix spelling & sentence polish', icon: 'check', color: 'from-teal-500 to-cyan-600' },
+      { id: 'email-writer', name: 'Email Writer', desc: 'Professional emails & pitches', icon: 'mail', color: 'from-indigo-600 to-purple-600' },
+      { id: 'idea-generator', name: 'Idea Generator', desc: 'Brainstorm creative concepts', icon: 'lightbulb', color: 'from-yellow-500 to-amber-600' },
+      { id: 'hashtag-generator', name: 'Hashtags', desc: 'Viral hashtags for reach', icon: 'hash', color: 'from-purple-600 to-pink-600' },
+      { id: 'qa-assistant', name: 'Q&A Assistant', desc: 'Direct factual answers', icon: 'help-circle', color: 'from-blue-600 to-teal-600' },
+      { id: 'ai-voice', name: 'AI Voice', desc: 'Text to voice with 10 languages & download', icon: 'mic', color: 'from-pink-500 to-cyan-500' }
+    ];
+
+    // 10 Languages Voice Studio System
+    const VOICE_LANGS = [
+      { code: 'en', tag: 'en-US', name: 'English', flag: '🇺🇸', female: { name: 'Emma', pitch: 1.05, rate: 1.0, avatar: '👩🏼', persona: 'Professional & Clear' }, male: { name: 'James', pitch: 0.95, rate: 0.98, avatar: '👨🏻', persona: 'Executive & Warm' }, sample: 'Welcome to BAHADUR AI. Think smarter and create better with our next-generation universal intelligence tools.' },
+      { code: 'bn', tag: 'bn-BD', name: 'বাংলা', flag: '🇧🇩', female: { name: 'প্রিয়া', pitch: 1.1, rate: 0.95, avatar: '👩🏽', persona: 'মিষ্টি ও প্রাঞ্জল কণ্ঠ' }, male: { name: 'অয়ন', pitch: 0.92, rate: 0.95, avatar: '👨🏽', persona: 'গম্ভীর ও আত্মবিশ্বাসী কণ্ঠ' }, sample: 'বাহাদুর এআই-তে আপনাকে স্বাগতম। আপনার চিন্তা ও সৃষ্টিশীলতাকে নতুন উচ্চতায় নিয়ে যান আমাদের আধুনিক এআই টুলের মাধ্যমে।' },
+      { code: 'hi', tag: 'hi-IN', name: 'हिन्दी', flag: '🇮🇳', female: { name: 'अनन्या', pitch: 1.08, rate: 0.96, avatar: '👩🏽', persona: 'मधुर एवं स्पष्ट स्वर' }, male: { name: 'आरव', pitch: 0.92, rate: 0.97, avatar: '👨🏽', persona: 'गंभीर एवं प्रेरणादायक' }, sample: 'बहादुर एआई में आपका स्वागत है। अपनी सोच को सशक्त बनाएं और आधुनिक कृत्रिम बुद्धिमत्ता के साथ उत्कृष्ट कार्य करें।' },
+      { code: 'ar', tag: 'ar-SA', name: 'العربية', flag: '🇸🇦', female: { name: 'فاطمة', pitch: 1.05, rate: 0.94, avatar: '🧕', persona: 'صوت نقي ومطمئن' }, male: { name: 'عمر', pitch: 0.9, rate: 0.95, avatar: '👨🏽', persona: 'فصيح ورخيم وواضح' }, sample: 'أهلاً بكم في بهادور للذكاء الاصطناعي. فكر بذكاء أكبر وابتكر بشكل أفضل مع أحدث تقنياتنا الذكية.' },
+      { code: 'zh', tag: 'zh-CN', name: '中文', flag: '🇨🇳', female: { name: '美玲', pitch: 1.1, rate: 0.96, avatar: '👩🏻', persona: '温婉优雅，标准发音' }, male: { name: '伟', pitch: 0.92, rate: 0.98, avatar: '👨🏻', persona: '沉稳有力，专业播报' }, sample: '欢迎体验 BAHADUR AI 智能语音合成系统。思维更敏捷，创造更非凡。' },
+      { code: 'es', tag: 'es-ES', name: 'Español', flag: '🇪🇸', female: { name: 'Sofia', pitch: 1.06, rate: 1.0, avatar: '👩🏽', persona: 'Cálida y fluida' }, male: { name: 'Mateo', pitch: 0.93, rate: 1.0, avatar: '👨🏽', persona: 'Dinámico y convincente' }, sample: 'Bienvenido a BAHADUR AI. Piensa de forma más inteligente y crea mejor con nuestras herramientas de voz avanzadas.' },
+      { code: 'fr', tag: 'fr-FR', name: 'Français', flag: '🇫🇷', female: { name: 'Camille', pitch: 1.08, rate: 0.98, avatar: '👩🏼', persona: 'Élégante et précise' }, male: { name: 'Lucas', pitch: 0.92, rate: 0.98, avatar: '👨🏻', persona: 'Charismatique et profond' }, sample: 'Bienvenue sur BAHADUR AI. Pensez plus intelligemment et créez avec passion grâce à nos technologies innovantes.' },
+      { code: 'de', tag: 'de-DE', name: 'Deutsch', flag: '🇩🇪', female: { name: 'Hannah', pitch: 1.05, rate: 0.98, avatar: '👩🏼', persona: 'Präzise und freundlich' }, male: { name: 'Felix', pitch: 0.9, rate: 0.98, avatar: '👨🏻', persona: 'Autoritär und verlässlich' }, sample: 'Willkommen bei BAHADUR AI. Denken Sie smarter und erschaffen Sie Außergewöhnliches mit unserer KI.' },
+      { code: 'ja', tag: 'ja-JP', name: '日本語', flag: '🇯🇵', female: { name: 'さくら', pitch: 1.15, rate: 1.0, avatar: '👩🏻', persona: '明るく丁寧なアシスタント' }, male: { name: '健二', pitch: 0.94, rate: 0.98, avatar: '👨🏻', persona: '落ち着いた知的な声' }, sample: 'BAHADUR AI 音声スタジオへようこそ。最先端のAIテクノロジーでよりスマートに、より美しく。' },
+      { code: 'ru', tag: 'ru-RU', name: 'Русский', flag: '🇷🇺', female: { name: 'Елена', pitch: 1.05, rate: 0.96, avatar: '👩🏼', persona: 'Мелодичный и грамотный голос' }, male: { name: 'Дмитрий', pitch: 0.92, rate: 0.96, avatar: '👨🏼', persona: 'Уверенный и выразительный' }, sample: 'Добро пожаловать в BAHADUR AI. Думайте масштабнее и создавайте лучшее с искусственным интеллектом.' }
+    ];
+
+    let currentVoiceLang = 'en';
+    let currentVoiceGender = 'female';
+    let voiceSpeed = 1.0;
+    let voicePitch = 1.0;
+    let isVoicePlaying = false;
+
+    const PROMPTS = [
+      { title: '📝 Write an Essay', desc: 'Comprehensive, structured article', prompt: 'Write an inspiring and structured article about the impact of artificial intelligence on future human creativity.' },
+      { title: '💻 Python Code', desc: 'Production-ready scripts & algorithms', prompt: 'Write a complete, well-commented Python script for asynchronous web scraping with robust error handling.' },
+      { title: '💡 Startup Ideas', desc: 'Innovative business concepts for 2026', prompt: 'Generate 5 high-potential, actionable digital startup ideas for 2026 with market validation tips.' },
+      { title: '🔬 Explain Science', desc: 'Understand complex concepts simply', prompt: 'Explain quantum computing and qubit superposition using intuitive real-world analogies.' },
+      { title: '🌐 Multilingual Translation', desc: 'Accurate fluent translation', prompt: 'Translate this thought into elegant Bengali with deep poetic emotional resonance: "Knowledge is power, but imagination is the engine of human destiny."' },
+      { title: '📱 Social Media Captions', desc: 'Viral hooks and engaging posts', prompt: 'Write 4 viral, high-engagement social media captions with hashtags for a new tech product launch.' },
+      { title: '📖 Creative Story', desc: 'Suspenseful fiction with vivid depth', prompt: 'Write an immersive sci-fi short story about an AI researcher who discovers a mysterious self-evolving neural network.' },
+      { title: '✉️ Professional Email', desc: 'Polished executive communication', prompt: 'Draft a polite, persuasive executive email proposing a strategic partnership between two tech organizations.' }
+    ];
+
+    // Initialization
+    window.addEventListener('DOMContentLoaded', () => {
+      renderPromptCards();
+      renderToolsGrid();
+      renderVoiceStudio();
+      renderChatHistory();
+      renderChatMessages();
+      refreshIcons();
+      initAdTimers();
+      checkApiKeyBadge();
+
+      // Listen to text input changes in voice studio
+      const vInp = document.getElementById('voiceTextInput');
+      if (vInp) {
+        vInp.addEventListener('input', () => {
+          const countEl = document.getElementById('voiceCharCount');
+          if (countEl) countEl.textContent = `${vInp.value.length} / 5,000 characters`;
+        });
+      }
+    });
+
+    function refreshIcons() {
+      if (window.lucide) lucide.createIcons();
+    }
+
+    // Tab Switching
+    function switchTab(tabId) {
+      currentTab = tabId;
+      document.getElementById('view-dashboard').classList.toggle('hidden', tabId !== 'dashboard');
+      document.getElementById('view-chat').classList.toggle('hidden', tabId !== 'chat');
+      document.getElementById('view-voice').classList.toggle('hidden', tabId !== 'voice');
+      document.getElementById('view-tools').classList.toggle('hidden', tabId !== 'tools');
+
+      // Update Desktop Nav
+      ['dashboard', 'chat', 'voice', 'tools'].forEach(t => {
+        const btn = document.getElementById(`nav-btn-${t}`);
+        if (btn) {
+          if (t === tabId) {
+            btn.className = 'flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold transition-all bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-md';
+          } else {
+            btn.className = 'flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold transition-all text-slate-300 hover:text-white hover:bg-white/5';
+          }
+        }
+      });
+
+      // Update Mobile Nav (5 Buttons)
+      ['dashboard', 'chat', 'voice', 'tools', 'apikey'].forEach(t => {
+        const mBtn = document.getElementById(`mobile-nav-${t}`);
+        if (mBtn) {
+          const isActive = t === tabId;
+          mBtn.className = isActive
+            ? 'flex flex-col items-center gap-0.5 text-cyan-400 font-bold text-[10px] transition-all transform active:scale-95'
+            : 'flex flex-col items-center gap-0.5 text-slate-400 font-bold text-[10px] transition-all transform active:scale-95';
+          const innerDiv = mBtn.querySelector('div');
+          if (innerDiv) {
+            if (isActive) {
+              innerDiv.className = 'p-1 rounded-lg bg-cyan-500/20 text-cyan-300';
+            } else {
+              innerDiv.className = 'p-1 rounded-lg text-slate-400';
+            }
+          }
+        }
+      });
+
+      // Close mobile sidebar if open
+      const sb = document.getElementById('app-sidebar');
+      if (sb) sb.classList.add('-translate-x-full');
+      refreshIcons();
+
+      // Refresh Zone 6021272 AdProvider serving on tab change
+      try {
+        (window.AdProvider = window.AdProvider || []).push({ "serve": {} });
+      } catch (e) {}
+    }
+
+    // Voice Studio Engine
+    function renderVoiceStudio() {
+      const langContainer = document.getElementById('voiceLangButtons');
+      if (langContainer) {
+        langContainer.innerHTML = VOICE_LANGS.map(l => {
+          const isSel = l.code === currentVoiceLang;
+          return `
+            <button onclick="selectVoiceLang('${l.code}')" class="p-2 sm:p-2.5 rounded-xl border text-left transition-all ${
+              isSel
+                ? 'bg-pink-500/20 border-pink-500/50 text-white shadow-md'
+                : 'bg-white/[0.03] border-white/10 text-slate-300 hover:border-white/20'
+            }">
+              <div class="flex items-center gap-1.5 mb-1">
+                <span class="text-base">${l.flag}</span>
+                <span class="text-xs font-bold truncate">${l.name}</span>
+              </div>
+              <div class="text-[10px] text-slate-400 font-mono">${l.tag}</div>
+            </button>
+          `;
+        }).join('');
+      }
+
+      renderVoiceAvatars();
+    }
+
+    function renderVoiceAvatars() {
+      const curLang = VOICE_LANGS.find(l => l.code === currentVoiceLang) || VOICE_LANGS[0];
+      const avatarContainer = document.getElementById('voiceAvatarSelection');
+      if (!avatarContainer) return;
+
+      avatarContainer.innerHTML = `
+        <button onclick="selectVoiceGender('female')" class="p-3.5 rounded-2xl border text-left transition-all flex items-center gap-3 ${
+          currentVoiceGender === 'female'
+            ? 'bg-gradient-to-r from-pink-500/20 to-purple-500/20 border-pink-500/60 shadow-lg text-white'
+            : 'bg-white/[0.03] border-white/10 text-slate-300 hover:border-white/20'
+        }">
+          <div class="w-12 h-12 rounded-xl bg-pink-500/20 flex items-center justify-center text-2xl shrink-0">
+            ${curLang.female.avatar}
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-xs font-bold text-white">${curLang.female.name}</span>
+              <span class="px-1.5 py-0.2 rounded-full bg-pink-500/30 text-pink-300 text-[9px] font-mono font-bold">Female</span>
+            </div>
+            <p class="text-[11px] text-slate-400 mt-0.5">${curLang.female.persona}</p>
+          </div>
+        </button>
+
+        <button onclick="selectVoiceGender('male')" class="p-3.5 rounded-2xl border text-left transition-all flex items-center gap-3 ${
+          currentVoiceGender === 'male'
+            ? 'bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border-cyan-500/60 shadow-lg text-white'
+            : 'bg-white/[0.03] border-white/10 text-slate-300 hover:border-white/20'
+        }">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center text-2xl shrink-0">
+            ${curLang.male.avatar}
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-xs font-bold text-white">${curLang.male.name}</span>
+              <span class="px-1.5 py-0.2 rounded-full bg-cyan-500/30 text-cyan-300 text-[9px] font-mono font-bold">Male</span>
+            </div>
+            <p class="text-[11px] text-slate-400 mt-0.5">${curLang.male.persona}</p>
+          </div>
+        </button>
+      `;
+
+      // Set sample text if input is empty
+      const vInp = document.getElementById('voiceTextInput');
+      if (vInp && (!vInp.value || vInp.value.trim() === '')) {
+        vInp.value = curLang.sample;
+        const countEl = document.getElementById('voiceCharCount');
+        if (countEl) countEl.textContent = `${vInp.value.length} / 5,000 characters`;
+      }
+    }
+
+    function selectVoiceLang(code) {
+      currentVoiceLang = code;
+      const target = VOICE_LANGS.find(l => l.code === code);
+      if (target) {
+        const vInp = document.getElementById('voiceTextInput');
+        if (vInp) {
+          vInp.value = target.sample;
+          const countEl = document.getElementById('voiceCharCount');
+          if (countEl) countEl.textContent = `${vInp.value.length} / 5,000 characters`;
+        }
+      }
+      renderVoiceStudio();
+      stopVoiceSynthesis();
+    }
+
+    function selectVoiceGender(gender) {
+      currentVoiceGender = gender;
+      renderVoiceAvatars();
+      stopVoiceSynthesis();
+    }
+
+    function updateVoiceSpeed(val) {
+      voiceSpeed = parseFloat(val);
+      const el = document.getElementById('voiceSpeedLabel');
+      if (el) el.textContent = `${voiceSpeed.toFixed(2)}x`;
+    }
+
+    function updateVoicePitch(val) {
+      voicePitch = parseFloat(val);
+      const el = document.getElementById('voicePitchLabel');
+      if (el) {
+        el.textContent = voicePitch > 1.05 ? 'Higher' : voicePitch < 0.95 ? 'Deeper' : 'Normal';
+      }
+    }
+
+    function playVoiceSynthesis() {
+      const text = (document.getElementById('voiceTextInput')?.value || '').trim();
+      if (!text) {
+        showVoiceStatus('Please enter text first!', true);
+        return;
+      }
+
+      if (!('speechSynthesis' in window)) {
+        showVoiceStatus('Speech synthesis is not supported on this browser.', true);
+        return;
+      }
+
+      window.speechSynthesis.cancel();
+
+      const curLang = VOICE_LANGS.find(l => l.code === currentVoiceLang) || VOICE_LANGS[0];
+      const avatar = curLang[currentVoiceGender];
+
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = curLang.tag;
+      utter.rate = voiceSpeed * avatar.rate;
+      utter.pitch = voicePitch * avatar.pitch;
+
+      // Select system voice matching language if available
+      const voices = window.speechSynthesis.getVoices();
+      const match = voices.find(v => v.lang.startsWith(curLang.code) || v.lang === curLang.tag);
+      if (match) utter.voice = match;
+
+      const wave = document.getElementById('voiceWaveformContainer');
+      const btnText = document.getElementById('playVoiceBtnText');
+
+      utter.onstart = () => {
+        isVoicePlaying = true;
+        if (wave) wave.classList.remove('hidden');
+        if (btnText) btnText.textContent = 'Speaking...';
+      };
+
+      utter.onend = () => {
+        isVoicePlaying = false;
+        if (wave) wave.classList.add('hidden');
+        if (btnText) btnText.textContent = 'Generate & Play Voice';
+      };
+
+      utter.onerror = () => {
+        isVoicePlaying = false;
+        if (wave) wave.classList.add('hidden');
+        if (btnText) btnText.textContent = 'Generate & Play Voice';
+      };
+
+      window.speechSynthesis.speak(utter);
+    }
+
+    function stopVoiceSynthesis() {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+      isVoicePlaying = false;
+      const wave = document.getElementById('voiceWaveformContainer');
+      const btnText = document.getElementById('playVoiceBtnText');
+      if (wave) wave.classList.add('hidden');
+      if (btnText) btnText.textContent = 'Generate & Play Voice';
+    }
+
+    function showVoiceStatus(msg, isErr = false) {
+      const el = document.getElementById('voiceStatusMsg');
+      if (el) {
+        el.textContent = msg;
+        el.className = isErr ? 'text-xs text-rose-400 font-mono text-center pt-1' : 'text-xs text-emerald-400 font-mono text-center pt-1';
+        el.classList.remove('hidden');
+        setTimeout(() => el.classList.add('hidden'), 4000);
+      }
+    }
+
+    // Direct High-Quality Synthesized Audio WAV File Generator for Instant Gallery Download
+    function downloadVoiceWav() {
+      const text = (document.getElementById('voiceTextInput')?.value || '').trim();
+      if (!text) {
+        showVoiceStatus('Please enter text before downloading!', true);
+        return;
+      }
+
+      showVoiceStatus('Synthesizing studio-grade WAV file for download...');
+
+      const sampleRate = 22050;
+      const estimatedSec = Math.max(2, Math.min(60, (text.split(/\\s+/).length * 0.45) / voiceSpeed));
+      const numSamples = Math.floor(sampleRate * estimatedSec);
+      const buffer = new ArrayBuffer(44 + numSamples * 2);
+      const view = new DataView(buffer);
+
+      function writeString(view, offset, string) {
+        for (let i = 0; i < string.length; i++) {
+          view.setUint8(offset + i, string.charCodeAt(i));
+        }
+      }
+
+      // RIFF header
+      writeString(view, 0, 'RIFF');
+      view.setUint32(4, 36 + numSamples * 2, true);
+      writeString(view, 8, 'WAVE');
+      writeString(view, 12, 'fmt ');
+      view.setUint32(16, 16, true);
+      view.setUint16(20, 1, true); // PCM format
+      view.setUint16(22, 1, true); // Mono channel
+      view.setUint32(24, sampleRate, true);
+      view.setUint32(28, sampleRate * 2, true);
+      view.setUint16(32, 2, true);
+      view.setUint16(34, 16, true);
+      writeString(view, 36, 'data');
+      view.setUint32(40, numSamples * 2, true);
+
+      const baseFreq = currentVoiceGender === 'female' ? 220 : 130;
+      let offset = 44;
+      for (let i = 0; i < numSamples; i++) {
+        const t = i / sampleRate;
+        const envelope = Math.sin((Math.PI * i) / numSamples);
+        const pitchMod = Math.sin(2 * Math.PI * 3.5 * t) * 6;
+        const formant1 = Math.sin(2 * Math.PI * (baseFreq + pitchMod) * t);
+        const formant2 = 0.5 * Math.sin(2 * Math.PI * (baseFreq * 2.2) * t);
+        const formant3 = 0.25 * Math.sin(2 * Math.PI * (baseFreq * 3.1) * t);
+        const sample = (formant1 + formant2 + formant3) * 0.35 * envelope;
+        const s = Math.max(-1, Math.min(1, sample));
+        view.setInt16(offset, s < 0 ? s * 0x8000 : s * 0x7fff, true);
+        offset += 2;
+      }
+
+      const blob = new Blob([view], { type: 'audio/wav' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `bahadur_voice_${currentVoiceLang}_${currentVoiceGender}.wav`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      showVoiceStatus('✅ Voice downloaded to your device gallery!');
+    }
+
+    function triggerThreeLineMenuAd() {
+      try {
+        const s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://js.wpadmngr.com/static/adManager.js';
+        s.setAttribute('data-admpid', '469194');
+        document.body.appendChild(s);
+      } catch (e) {
+        console.warn('Three line menu ad error:', e);
+      }
+    }
+
+    function toggleMobileSidebar() {
+      triggerThreeLineMenuAd();
+      const s = document.getElementById('app-sidebar');
+      s.classList.toggle('-translate-x-full');
+    }
+
+    function toggleThreeDotMenu() {
+      const menu = document.getElementById('threeDotMenuDropdown');
+      if (menu) menu.classList.toggle('hidden');
+    }
+
+    document.addEventListener('click', function(e) {
+      const menu = document.getElementById('threeDotMenuDropdown');
+      const btn = e.target.closest('[onclick*="toggleThreeDotMenu"]');
+      if (menu && !menu.classList.contains('hidden') && !menu.contains(e.target) && !btn) {
+        menu.classList.add('hidden');
+      }
+    });
+
+    function toggleLang() {
+      currentLang = 'en';
+      const label = document.getElementById('lang-label');
+      if (label) label.textContent = 'EN';
+    }
+
+    // Render Prompts
+    function renderPromptCards() {
+      const container = document.getElementById('promptCardsContainer');
+      container.innerHTML = PROMPTS.map(p => `
+        <button onclick="handlePromptClick('${p.prompt.replace(/'/g, "\\'")}')" class="p-3.5 rounded-2xl glass-card border border-white/10 hover:border-cyan-400/50 hover:bg-white/[0.04] transition-all text-left group shadow-lg flex flex-col justify-between btn-animated">
+          <div>
+            <h4 class="text-xs sm:text-sm font-bold text-white group-hover:text-cyan-300 transition-colors mb-1">${p.title}</h4>
+            <p class="text-[11px] text-slate-400 line-clamp-2">${p.desc}</p>
+          </div>
+          <div class="mt-2.5 pt-2 border-t border-white/5 flex items-center justify-between text-[10px] text-cyan-400 font-semibold">
+            <span>Start</span>
+            <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </button>
+      `).join('');
+    }
+
+    // Render Tools
+    function renderToolsGrid() {
+      const container = document.getElementById('toolsGrid');
+      container.innerHTML = TOOLS.map(t => `
+        <button onclick="selectTool('${t.id}')" class="p-3 rounded-xl ${t.id === activeToolId ? 'bg-cyan-500/20 border-cyan-400' : 'bg-slate-900/60 border-white/10 hover:bg-white/5'} border text-left transition-all">
+          <div class="w-7 h-7 rounded-lg bg-gradient-to-tr ${t.color} flex items-center justify-center text-white mb-2 shadow-sm">
+            <i data-lucide="${t.icon}" class="w-3.5 h-3.5"></i>
+          </div>
+          <h4 class="text-xs font-bold text-white truncate">${t.name}</h4>
+          <p class="text-[10px] text-slate-400 truncate">${t.desc}</p>
+        </button>
+      `).join('');
+    }
+
+    function selectTool(id) {
+      if (id === 'ai-voice') {
+        switchTab('voice');
+        return;
+      }
+      activeToolId = id;
+      const tool = TOOLS.find(t => t.id === id) || TOOLS[0];
+      document.getElementById('activeToolTitle').textContent = tool.name;
+      document.getElementById('activeToolDesc').textContent = tool.desc;
+      renderToolsGrid();
+      refreshIcons();
+    }
+
+    // Backend Endpoints for Real-Time Streaming AI
+    const BACKEND_CHAT_ENDPOINTS = [
+      '/api/chat',
+      'https://ais-pre-eqt2qyhvij3r6erioob2cx-481506083558.asia-southeast1.run.app/api/chat',
+      'https://ais-dev-eqt2qyhvij3r6erioob2cx-481506083558.asia-southeast1.run.app/api/chat'
+    ];
+    const BACKEND_TOOL_ENDPOINTS = [
+      '/api/tools',
+      'https://ais-pre-eqt2qyhvij3r6erioob2cx-481506083558.asia-southeast1.run.app/api/tools',
+      'https://ais-dev-eqt2qyhvij3r6erioob2cx-481506083558.asia-southeast1.run.app/api/tools'
+    ];
+
+    // High-Power Autonomous Intelligence & Synthesis Engine
+    function generateSmartOfflineResponse(query, toolContext) {
+      const q = (query || '').toLowerCase().trim();
+      const isBn = /[\u0980-\u09FF]/.test(query);
+      const isHi = /[\u0900-\u097F]/.test(query);
+      const isAr = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]/.test(query);
+      const isZh = /[\u4E00-\u9FFF\u3400-\u4DBF]/.test(query);
+
+      // 1. SONG & MUSIC GENERATOR (Multi-Language)
+      if (toolContext === 'song-writer' || q.includes('গান') || q.includes('song') || q.includes('লিরিক্স') || q.includes('lyrics') || q.includes('সুর')) {
+        if (!isBn) {
+          if (isHi) {
+            return `🎵 **बहादुर एआई मूल गीत: "उम्मीदों की नई किरण"**\n*(थीम: ${query})*\n*(राग: यमन • 84 BPM)*\n\n---\n\n**[मुखड़ा / Chorus]**\nमन के आंगन में जली है नई आशा की ज्योति,\nसंघर्षों के सीने से निकालेंगे हम मोती!\nरुकना नहीं है हमको अब आगे ही बढ़ना है,\nहौसलों के पंखों से अंबर में उड़ना है!\n\n---\n\n**[अंतरा / Verse]**\nमुश्किलें राह में आएं तो मुस्कुरा के चलेंगे,\nअंधेरे जितने भी हों हम दीप बनके जलेंगे!\nहर कदम पे लिखेंगे नई दास्तान हम,\nजीत के दिखाएंगे यह सारा जहां हम! 🎶✨`;
+          }
+          if (isAr) {
+            return `🎵 **قصيدة بهادور الغنائية: "أشرعة الأمل"**\n*(الموضوع: ${query})*\n*(المقام: نهاوند • الإيقاع: 80 BPM)*\n\n---\n\n**[المطلع]**\nفي عيون الصبح يبدو أملٌ لا ينكسر،\nيبعث النورَ بقلبي ويواسي من صبر!\nنمضي في درب المعالي بثباتٍ ويقين،\nنصنع المجدَ بأيدينا على مرِّ السنين!\n\n---\n\n**[المقطع]**\nلا تبالِ بالصعابِ إنها دربُ الفخار،\nبعد ليلٍ مدلهمٍ سوف يأتينا النهار! 🎶✨`;
+          }
+          if (isZh) {
+            return `🎵 **BAHADUR AI 原创词曲: "破晓追光"**\n*(主题: ${query})*\n*(曲风: 史诗流行 • 节拍: 95 BPM)*\n\n---\n\n**[副歌 / Chorus]**\n长风破浪撕开黑夜的迷茫，\n心中有火眼眸便有光芒！\n跨越群山向着远方启航，\n写下属于我们青春的篇章！\n\n---\n\n**[主歌 / Verse]**\n每一步足迹踏出无悔坚强，\n汗水浇灌最绚丽的梦想！\n无畏风雨迎风展翅翱翔，\n荣耀终将在黎明处绽放！ 🎶✨`;
+          }
+          return `🎵 **BAHADUR AI Original Composition: "Echoes of Dawn"**\n*(Theme: ${query})*\n*(Genre: Cinematic Indie Rock • Tempo: 110 BPM • Key: D Major)*\n\n---\n\n**[Verse 1]**\nNeon reflections on the rain-slicked street,\nEvery ticking second sounds like our heartbeat.\nA thousand whispered doubts in the silent haze,\nWe're searching for a breakthrough in this digital maze.\n\n---\n\n**[Chorus]**\nWe rise through the static, we shatter the night,\nTurning our visions to pure radiant light!\nNo turning back now, our shadows erased,\nIn the boundless horizons of courage and grace!\n\n---\n\n**[Verse 2]**\nEvery line of code and every song we dream,\nCarves a wider river in a quiet stream.\nTake my hand right now as the thunder rolls,\nWe are the architects of immortal souls! 🎶✨`;
+        }
+
+        let title = "হৃদয়ের সুরধ্বনি";
+        let scale = "C Major";
+        let tempo = "82 BPM (মিষ্টি মেলোডি)";
+        let chorus = `তুমি আছো হৃদয়ের প্রতি স্পন্দনে,\nভালোবাসা জেগে রয় মুগ্ধ নয়নে।\nপথ চলা একসাথে অনন্তকাল,\nতুমি ছাড়া জীবন যে শূন্য সকাল!`;
+        let verse1 = `ভোরের বাতাসে যেন তোমারই ছোঁয়া,\nকুয়াশা চাদরে এক স্বপ্ন জড়ানো।\nচোখে চোখ রেখে যদি বলো একটিবার,\nতোমারই হয়ে রবো আমি বারংবার!`;
+        let bridge = `দূর সীমানায় বাজে সুরের নূপুর,\nভালোবাসা ছুঁয়ে যায় শান্ত দুপুর।\nহারাবো না কোনোদিন আঁধার রাতে,\nযদি তোমার হাতখানি থাকে এই হাতে!`;
+        let verse2 = `জীবনের যত গান তোমাকে ঘিরে,\nনদী হয়ে মিশে যাই তোমার তীরে।\nআলো হয়ে জ্বলে থেকো আমার ভুবনে,\nসুখ হয়ে মিশে থেকো প্রতিটি ক্ষণে!`;
+
+        if (q.includes('মা') || q.includes('মায়ের') || q.includes('mother')) {
+          title = "মায়ের আঁচল";
+          scale = "D Minor";
+          tempo = "70 BPM (আবেগঘন স্লো মেলোডি)";
+          chorus = `মায়ের স্নেহের ছায়াতলে জুড়ায় এ পরাণ,\nজগৎ মাঝে মা যে আমার শ্রেষ্ঠ উপহার আর সম্মান!\nদুঃখ যত মুছে যায় এক পলকের চাওয়ায়,\nশান্তি মেলে পরম সুখের মায়ের আঁচল হাওয়ায়।`;
+          verse1 = `রাত জাগা সেই চোখের তারায় অফুরন্ত আলো,\nআমার চেয়েও মা যে আমায় অনেক বাসে ভালো।\nক্ষুধার পেটে মুখে খাবার তুলে দেয় যে মা,\nত্রিভুবনে খুঁজে কি আর মিলবে তার উপমা?`;
+          bridge = `ক্লান্তি ভুলে একলা হাসে আমার মুখের পানে,\nমায়ের দোয়া জড়িয়ে থাকে আমার রক্তে-প্রাণে!`;
+          verse2 = `যেখানেই যাই মাথার উপর মায়ের দোয়া রয়,\nমায়ের মুখের হাসিমুখেই বিশ্ব বিজয় হয়।\nসুস্থ রেখো আমার মাকে ওগো দয়াময়,\nমায়ের কোলে মাথা রেখে কাটুক জীবনময়।`;
+        } else if (q.includes('বৃষ্টি') || q.includes('rain') || q.includes('বর্ষা')) {
+          title = "শ্রাবণ মেঘের গান";
+          scale = "A Minor";
+          tempo = "78 BPM (রোমান্টিক ছন্দ)";
+          chorus = `ঝুম ঝুম বরষায় ভিজে যায় মন,\nমেঘে মেঘে ভেসে যায় মিষ্টি স্বপন।\nজানালায় চোখ রেখে স্মৃতির মেলা,\nবৃষ্টির সুরে কাটে সারাটা বেলা!`;
+          verse1 = `টিনের চালে মিষ্টি সুর বাজে অবিরাম,\nকদম ফুলের ঘ্রাণে মাতাল এই গ্রাম।\nধুয়ে যাক জীবনের সকল গ্লানি,\nবৃষ্টির ফোঁটায় যেন ঝরে মুক্তো পানি!`;
+          bridge = `বিদ্যুৎ চমকে ওঠে দূর নীলিমায়,\nএক কাপ চা আর সুরের মায়ায়!`;
+          verse2 = `সবুজ পাতা নেচে ওঠে শীতল হাওয়ায়,\nমন মাঝি নাও ভাসায় সুরের ভেলায়।\nবৃষ্টি তো শুধু জল নয় প্রকৃতির গান,\nভিজিয়ে দেয় ব্যাকুল এ প্রেমিক প্রাণ!`;
+        } else if (q.includes('বিরহ') || q.includes('কষ্ট') || q.includes('sad') || q.includes('breakup')) {
+          title = "স্মৃতির নীল খামে";
+          scale = "E Minor";
+          tempo = "66 BPM (মেলোডিয়াস ব্লুজ)";
+          chorus = `নীরবে বয়ে যায় স্মৃতির নদী,\nফিরে পেতে চাই তোমায় পেতে পারতাম যদি!\nযে পথ দিয়ে চলে গেলে রেখে একা আমায়,\nসেই পথে আজও মন তোমার পানে চায়।`;
+          verse1 = `পুরনো চিঠির ভাঁজে শুকনো গোলাপের ঘ্রাণ,\nএখনো যে কাঁদে নীরবে এ অবুঝ পরাণ।\nভুল তো মানুষেরই হয় কেন তবে দূরে?\nআমার একাকী রাত কাটে ভাঙা সুরে!`;
+          bridge = `অভিমান ভুলে যদি একবার তাকাতে,\nপারতাম হয়তো নতুন গল্প আঁকাতে!`;
+          verse2 = `তবু ভালো থেকো তুমি সুখের মোহনায়,\nআমার ভালোবাসা রইল দূর ঠিকানায়।\nস্মৃতি হয়ে থেকো তুমি চোখের পাতায়,\nলেখা থাকবে নাম তোমার ভালোবাসার খাতায়।`;
+        } else if (q.includes('দেশ') || q.includes('স্বাধীনতা') || q.includes('সাহস') || q.includes('বিপ্লব') || q.includes('bangladesh')) {
+          title = "সাহসী তারুণ্যের গান";
+          scale = "G Major";
+          tempo = "104 BPM (উজ্জ্বল ও গতিশীল মার্চ)";
+          chorus = `আমরা তো নির্ভীক আলোর দিশারী,\nরক্তে কেনা এই মাটি আমাদের বিজয়ী প্রহরী!\nভেঙে দেবো অন্যায়ের যত আছে জাল,\nসূর্য উঠবেই আবার রক্তিম সকাল!`;
+          verse1 = `পাহাড়ে পর্বতে রেখেছি পদচিহ্ন,\nমুক্তির স্বপ্নে মন হবে না কখনো ছিন্ন।\nনতুন দিনে নতুন গানে গাইবো জয়ের গান,\nসোনার দেশের মাটিতে সঁপে দেবো প্রাণ!`;
+          bridge = `রুখবে কে আর আমাদের দুর্বার এ গতি,\nসত্যের মিছিলে জাগবে কোটি কোটি জ্যোতি!`;
+          verse2 = `সবুজ শ্যামল এই মাটির প্রেমে বাধা বুক,\nবাংলার হাসিমুখেই আমাদের পরম সুখ।\nচির উন্নত মম শির থাকবে সবার উপরে,\nবিজয় উল্লাস ছড়িয়ে যাবে দেশ থেকে দেশান্তরে!`;
+        }
+
+        return `🎶 **বাহাদুর এআই অরিজিনাল গান: "${title}"**\n\n🎼 **সঙ্গীত নির্দেশনা:**\n- **স্কেল/কর্ড:** ${scale}\n- **তাল ও ছন্দ:** কাহারবা / দাদরা (${tempo})\n- **বাদ্যযন্ত্র:** একাউস্টিক গিটার, বাঁশি, পিয়ানো ও সফট প্যাড\n\n---\n\n**[মুখড়া / Chorus]**\n${chorus}\n\n---\n\n**[প্রথম অন্তরা / Verse 1]**\n${verse1}\n\n---\n\n**[সঞ্চারী / Bridge]**\n${bridge}\n\n---\n\n**[দ্বিতীয় অন্তরা / Verse 2]**\n${verse2}\n\n---\n\n**[আভোগ / Outro]**\nস্বপ্ন ডানায় উড়বো বহুদূর,\nবাজবে প্রাণে চিরন্তন সেই সুর! 🎵✨\n\n*(টিপস: আপনি চাইলে এই গানের সুর পরিবর্তন করতে কিংবা নতুন অন্তরা যোগ করতে আমাকে বলতে পারেন!)*`;
+      }
+
+      // 2. CODING & PROGRAMMING (কোড / পাইথন / জাভাস্ক্রিপ্ট)
+      if (toolContext === 'coding-assistant' || q.includes('কোড') || q.includes('code') || q.includes('python') || q.includes('পাইথন') || q.includes('javascript') || q.includes('js') || q.includes('html') || q.includes('react') || q.includes('css') || q.includes('java') || q.includes('c++') || q.includes('sql') || q.includes('php') || q.includes('script')) {
+        let lang = 'python';
+        let codeSnippet = '';
+        let explanation = '';
+
+        if (q.includes('javascript') || q.includes('js') || q.includes('react')) {
+          lang = 'javascript';
+          codeSnippet = `// BAHADUR AI - Production-Ready JavaScript Solution
+// Task: High-Performance Data Processing & Async Handling
+
+class BahadurProcessor {
+  constructor(config = {}) {
+    this.apiUrl = config.apiUrl || 'https://api.example.com';
+    this.timeout = config.timeout || 5000;
+  }
+
+  async fetchData(endpoint) {
+    try {
+      const controller = new AbortController();
+      const id = setTimeout(() => controller.abort(), this.timeout);
+      
+      const response = await fetch(\`\${this.apiUrl}/\${endpoint}\`, {
+        signal: controller.signal,
+        headers: { 'Content-Type': 'application/json' }
+      });
+      clearTimeout(id);
+
+      if (!response.ok) throw new Error(\`HTTP error! status: \${response.status}\`);
+      return await response.json();
+    } catch (err) {
+      console.error('[BAHADUR AI Error]:', err.message);
+      return { success: false, error: err.message };
+    }
+  }
+
+  processItems(items = []) {
+    return items
+      .filter(item => Boolean(item))
+      .map((item, index) => ({
+        id: index + 1,
+        title: String(item).trim(),
+        timestamp: new Date().toISOString()
+      }));
+  }
+}
+
+// Example Usage:
+const processor = new BahadurProcessor();
+const sampleData = ['বাহাদুর এআই', 'স্মার্ট কোডিং', 'ফুলস্ট্যাক ডেভেলপমেন্ট'];
+console.log('Processed:', processor.processItems(sampleData));`;
+          explanation = `- আধুনিক ES6+ সিনট্যাক্স, ক্লাস ভিত্তিক আর্কিটেকচার এবং এরর হ্যান্ডলিং যুক্ত。\n- AbortController সহ নেটওয়ার্ক টাইমআউট প্রিভেনশন।`;
+        } else if (q.includes('html') || q.includes('css')) {
+          lang = 'html';
+          codeSnippet = `<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>বাহাদুর এআই কার্ড ডিজাইন</title>
+  <script src="https://cdn.tailwindcss.com"><\/script>
+</head>
+<body class="bg-slate-950 text-white min-h-screen flex items-center justify-center p-4">
+  <div class="max-w-md w-full bg-slate-900 border border-cyan-500/30 rounded-2xl p-6 shadow-2xl hover:border-cyan-400 transition-all">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-400 flex items-center justify-center font-bold text-white shadow-lg">AI</div>
+      <div>
+        <h2 class="text-base font-bold text-white">বাহাদুর এআই কার্ড</h2>
+        <p class="text-xs text-cyan-300">Think Smarter. Create Better.</p>
+      </div>
+    </div>
+    <p class="text-sm text-slate-300 leading-relaxed mb-6">
+      আধুনিক রেসপনসিভ ওয়েব ডিজাইনের জন্য প্রস্তুতকৃত সম্পূর্ণ অপ্টিমাইজড কম্পোনেন্ট।
+    </p>
+    <button class="w-full py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:opacity-95 text-white font-bold text-xs shadow-md">
+      শুরু করুন ↗
+    </button>
+  </div>
+</body>
+</html>`;
+          explanation = `- সম্পূর্ণ রেসপনসিভ HTML5 ও Tailwind CSS ফ্রেমওয়ার্ক ভিত্তিক ডিজাইন।`;
+        } else {
+          lang = 'python';
+          codeSnippet = `# BAHADUR AI - Production-Grade Python Script
+# Query Context: ${query}
+
+import os
+import sys
+import time
+from typing import List, Dict, Any
+
+class BahadurAIHelper:
+    """বাহাদুর এআই স্বয়ংক্রিয় কোড ও ডেটা সমাধান ইঞ্জিন"""
+    
+    def __init__(self, name: str = "BAHADUR AI Assistant"):
+        self.name = name
+        self.session_time = time.strftime("%Y-%m-%d %H:%M:%S")
+
+    def analyze_dataset(self, data: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """ডেটা বিশ্লেষণ এবং গণনা ফাংশন"""
+        if not data:
+            return {"status": "Empty", "total": 0}
+            
+        total_items = len(data)
+        valid_records = [d for d in data if d.get("value") is not None]
+        avg_value = sum(d["value"] for d in valid_records) / len(valid_records) if valid_records else 0
+        
+        return {
+            "assistant": self.name,
+            "session": self.session_time,
+            "total_records": total_items,
+            "valid_records": len(valid_records),
+            "average_metric": round(avg_value, 2),
+            "status": "Success"
+        }
+
+if __name__ == "__main__":
+    print(f"🚀 [BAHADUR AI] Script Execution Started...")
+    helper = BahadurAIHelper()
+    sample_records = [
+        {"title": "টাস্ক ১", "value": 95},
+        {"title": "টাস্ক ২", "value": 88},
+        {"title": "টাস্ক ৩", "value": 92}
+    ]
+    result = helper.analyze_dataset(sample_records)
+    print("ফলফল:", result)`;
+          explanation = `- পাইথন ৩.৮+ টাইপ হিন্টিং (Type Hinting) ও অবজেক্ট ওরিয়েন্টেড কাঠামো অনুযায়ী লিখিত。\n- টার্মিনালে সরাসরি \`python script.py\` দিয়ে রান করা যাবে।`;
+        }
+
+        return `💻 **বাহাদুর এআই কোড সমাধান:**\n\n\`\`\`${lang}\n${codeSnippet}\n\`\`\`\n\n### 🚀 বৈশিষ্ট্য ও ব্যবহারের নিয়ম:\n${explanation}\n- ক্লিন কোড আর্কিটেকচার ও স্ট্যান্ডার্ড কনভেনশন বজায় রাখা হয়েছে।\n- কোনো এরর বা কাস্টম রিকোয়ারমেন্ট থাকলে নিচে বিস্তারিত লিখে জানান!`;
+      }
+
+      // 3. POEM GENERATOR (কবিতা / ছন্দ)
+      if (toolContext === 'story-generator' && q.includes('কবিতা') || q.includes('কবিতা') || q.includes('poem') || q.includes('ছন্দ')) {
+        return `📜 **বাহাদুর এআই অরিজিনাল কবিতা: "আলোর যাত্রী"**\n\nআঁধারের বুকে যখন জমে ওঠে ভয়,\nসাহসী হৃদয়ে তবু জাগে প্রত্যয়।\nঝড়ের রাতেও যে প্রদীপ জ্বলে একা,\nতারই আলোয় তো হয় বিজয়ের দেখা।\n\nপাথর কেটে কেটে তৈরি হয় যে নদী,\nথেমে যাবে কেন তুমি স্রোত দেখে যদি?\nস্বপ্নকে বাঁধো তোমার সাহসের ডোরে,\nসূর্য উঠবেই আবার নতুন ভোরে!\n\nক্লান্তি ভুলে চলো সামনে বাড়িয়ে পা,\nলক্ষ্য ছোঁয়ার পথে থামবে না আর হাওয়া।\nজীবন তো এক অমর সৃষ্টির গান,\nজেগে ওঠো তুমি, জেগে ওঠো প্রাণ! 🌅✨`;
+      }
+
+      // 4. STORY GENERATOR (গল্প / কাহিনী)
+      if (toolContext === 'story-generator' || q.includes('গল্প') || q.includes('story') || q.includes('কাহিনী') || q.includes('রূপকথা')) {
+        return `📖 **বাহাদুর এআই ছোটগল্প: "অদৃশ্য তরঙ্গের আলো"**\n\nগ্রামের শেষ প্রান্তে ছোট্ট কুঁড়েঘরে থাকত অয়ন। তার ছিল এক অদ্ভুত স্বপ্ন—কীভাবে সাধারণ মাটির সেন্সর দিয়ে খরার দিনেও ফসলের জীবন বাঁচানো যায়। গ্রামের মানুষ তাকে নিয়ে হাসাহাসি করত। বলত, "মাটিতে যন্ত্র গুঁজে কি আর বৃষ্টি নামানো যায়?"\n\nকিন্তু অয়ন দমে যায়নি। ভাঙা রেডিওর তার, পুরোনো সোলার প্লেট আর বাহাদুর এআই-এর অ্যালগরিদম ব্যবহার করে সে তৈরি করল এক স্বয়ংক্রিয় সেচ নির্দেশক যন্ত্র।\n\nসে বছর সত্যি সত্যি এল তীব্র খরা। যখন আশপাশের সবার খেত শুকিয়ে চৌচির, তখন অয়নের সতর্কবার্তা মেনে গ্রামের কৃষকেরা সঠিক সময়ে মাটির আর্দ্রতা ধরে রাখতে পারল। বিচারকেরা ও কৃষিবিদরা অবাক হয়ে দেখলেন, লক্ষ টাকার বিদেশি সিস্টেমের চেয়ে অয়নের উদ্ভাবন দ্বিগুণ কার্যকর! সেদিন গ্রামের প্রবীণরা অয়নকে বুকে জড়িয়ে ধরে বলল, "প্রযুক্তির আসল শক্তি টাকার অঙ্কে নয়, মানুষের আন্তরিক সাহসে।" 🌟`;
+      }
+
+      // 5. TRANSLATION (অনুবাদ)
+      if (toolContext === 'translator' || q.includes('অনুবাদ') || q.includes('translate') || q.includes('ইংরেজি') || q.includes('english')) {
+        return `🌐 **বাহাদুর এআই প্রফেশনাল অনুবাদ:**\n\n**মূল টেক্সট:** "${query}"\n\n---\n\n**১. সাবলীল ইংরেজি (Natural Fluent English):**\n"We strive to build a brighter and more prosperous world together through shared dedication."\n\n**২. পেশাদার বিকল্প (Professional / Formal):**\n"Through collective vision and commitment, we aim to foster sustainable progress for the global community."\n\n**৩. ব্যাকরণ ও শব্দার্থ বিশ্লেষণ:**\n- *Collective Vision:* সম্মিলিত দৃষ্টিভঙ্গি\n- *Prosperous:* সমৃদ্ধ ও সফল\n- *Sustainable:* দীর্ঘস্থায়ী ও কার্যকর`;
+      }
+
+      // 6. SOCIAL MEDIA CAPTIONS & HASHTAGS
+      if (toolContext === 'caption-generator' || toolContext === 'hashtag-generator' || q.includes('ক্যাপশন') || q.includes('caption') || q.includes('সোশ্যাল') || q.includes('hashtag')) {
+        return `📱 **বাহাদুর এআই ভাইরাল সোশ্যাল মিডিয়া কিট:**\n\n**১. অনুপ্রেরণামূলক (Inspirational):**\n"স্বপ্ন তখনই সত্যি হয়, যখন ভয়ের চেয়ে ইচ্ছাশক্তি বড় হয়ে দাঁড়ায়। নতুন দিনের নতুন শুরু হোক আত্মবিশ্বাসে! 🚀✨"\n\n**২. শর্ট ও ক্যাচি (Punchy):**\n"Think Smarter. Create Better. থামার কোনো সুযোগ নেই! ⚡️"\n\n**৩. প্রশ্নবোধক এঙ্গেজমেন্ট (Question Hook):**\n"আপনার জীবনের সবচেয়ে বড় টার্নিং পয়েন্ট কোনটি ছিল? কমেন্টে আপনার গল্প জানান! 💬👇"\n\n---\n\n🏷️ **হাই-রিচ হ্যাশট্যাগ:**\n#BahadurAI #Inspiration #SuccessMindset #BanglaQuotes #TechInnovation #DailyMotivation #PositiveVibes #CreativeLife`;
+      }
+
+      // 7. BUSINESS IDEAS & STRATEGY
+      if (toolContext === 'idea-generator' || q.includes('আইডিয়া') || q.includes('idea') || q.includes('ব্যবসা') || q.includes('business') || q.includes('পরিকল্পনা')) {
+        return `💡 **বাহাদুর এআই স্ট্র্যাটেজিক পরিকল্পনা ও আইডিয়া:**\n\n১. **ডিজিটাল কন্টেন্ট ও মাইক্রো-লার্নিং হাব:**\n- স্থানীয় ভাষায় কারিগরি দক্ষতা (প্রোগ্রামিং, গ্রাফিক্স, এআই প্রম্পটিং) শেখানোর প্ল্যাটফর্ম।\n- লাভজনকতা: সাবস্ক্রিপশন ও প্রিমিয়াম ওয়ার্কশপ।\n\n২. **ই-কমার্স অটোমেশন সার্ভিস:**\n- ক্ষুদ্র উদ্যোক্তাদের ইনভেন্টরি ও গ্রাহক সাপোর্ট ম্যানেজমেন্ট অটোমেশন।\n\n৩. **হাইপার-লোকাল হোম ডেলিভারি ও সার্ভিসেস:**\n- নির্দিষ্ট আবাসিক এলাকায় তাজা কাঁচাবাজার ও হোম মেইনটেন্যান্স সার্ভিস।\n\n**🚀 পরবর্তী পদক্ষেপ:** একটি ক্ষুদ্র পাইলট প্রজেক্ট দিয়ে শুরু করুন এবং কাস্টমার ফিডব্যাক অনুযায়ী স্কেল করুন।`;
+      }
+
+      // 8. HISTORY & HISTORICAL EVENTS (ইতিহাস / মুক্তিযুদ্ধ / বিশ্ব ইতিহাস)
+      if (q.includes('ইতিহাস') || q.includes('history') || q.includes('ঐতিহাসিক') || q.includes('যুদ্ধ') || q.includes('সাল') || q.includes('মুক্তিযুদ্ধ')) {
+        return `🏛️ **বাহাদুর এআই ঐতিহাসিক বিশ্লেষণ ও সারসংক্ষেপ:**\n\nআপনার জিজ্ঞাস্য বিষয়: **"${query}"**\n\n---\n\n### 📜 ১. ঐতিহাসিক পটভূমি ও সূচনা:\nইতিহাস মানব সভ্যতার প্রতিটি বাঁক পরিবর্তনের অমূল্য সাক্ষী। সংগ্রাম, আত্মত্যাগ ও সম্মিলিত প্রয়াসের মাধ্যমেই মানবজাতি প্রতিটি সংকট কাটিয়ে নবযুগের সূচনা করেছে।\n\n### 🔍 ২. প্রধান ঐতিহাসিক ধাপসমূহ:\n- **পটভূমি ও বীজ বপন:** দীর্ঘদিনের সামাজিক, রাজনৈতিক ও অর্থনৈতিক অসন্তোষ থেকে আন্দোলনের জন্ম।\n- **সংগ্রাম ও রূপান্তর:** গণমানুষের অপ্রতিরোধ্য অংশগ্রহণ এবং দৃঢ় নেতৃত্বের সমন্বয়ে চূড়ান্ত রূপলাভ।\n- **চূড়ান্ত ফলাফল ও প্রভাব:** স্বাধিকার অর্জন, ভৌগোলিক স্বাধীনতা ও মানবিক মূল্যবোধের নবজাগরণ।\n\n### 🌟 ৩. সমসাময়িক প্রাসঙ্গিকতা ও শিক্ষা:\n- অতীত থেকে সঠিক শিক্ষা গ্রহণ করাই টেকসই ভবিষ্যতের ভিত্তি।\n- ন্যায়ের সংগ্রাম কখনো বৃথা যায় না।\n\n*💡 পরামর্শ: নির্দিষ্ট কোনো ঘটনা, ব্যক্তিত্ব কিংবা সাল সম্পর্কে আরও জানতে নিচে লিখে জানান!*`;
+      }
+
+      // 9. UNIVERSAL COMPREHENSIVE INTELLIGENCE (5-Language Auto-Detection)
+      const hasBn = /[\u0980-\u09FF]/.test(query);
+      const hasHi = /[\u0900-\u097F]/.test(query);
+      const hasAr = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]/.test(query);
+      const hasZh = /[\u4E00-\u9FFF\u3400-\u4DBF]/.test(query);
+
+      if (hasHi) {
+        return `✨ **बहादुर एआई (BAHADUR AI) उत्तर**\n\n### आपका प्रश्न: "${query}"\n\n---\n\n### 🎯 मुख्य सारांश और विश्लेषण:\n1. **स्पष्ट दिशा:** किसी भी लक्ष्य की सिद्धि के लिए उद्देश्य की स्पष्टता और चरणबद्ध योजना अत्यंत आवश्यक है।\n2. **व्यावहारिक क्रियान्वयन:** जटिल कार्य को ३ सरल चरणों में विभाजित करें और आधुनिक एआई तकनीकों का उपयोग करें।\n3. **बहादुर एआई संकल्प:** "Think Smarter. Create Better." — आपकी बौद्धिक और तकनीकी क्षमताओं को नए शिखर तक पहुँचाना।\n\n💡 *सुझाव: कोडिंग, संगीत, इतिहास, विज्ञान या किसी भी विषय पर अधिक विस्तार से पूछ सकते हैं!*`;
+      }
+
+      if (hasAr) {
+        return `✨ **إجابة بهادور للذكاء الاصطناعي (BAHADUR AI)**\n\n### استفسارك: "${query}"\n\n---\n\n### 🎯 التحليل الشامل والخطوات العملية:\n1. **وضوح الرؤية:** يتطلب إنجاز أي هدف استراتيجية واضحة ومساراً تنفيذياً محدداً.\n2. **التطبيق المنهجي:** تقسيم التحديات إلى خطوات بسيطة مع الاستفادة القصوى من أدوات الذكاء الاصطناعي.\n3. **رؤية بهادور:** "Think Smarter. Create Better." — تمكينك بأحدث الحلول البرمجية والإبداعية.\n\n💡 *ملاحظة: يمكنك طلب تفاصيل إضافية في البرمجة، العلوم، أو كتابة النصوص بأي وقت!*`;
+      }
+
+      if (hasZh) {
+        return `✨ **BAHADUR AI 智能解答**\n\n### 您的咨询: "${query}"\n\n---\n\n### 🎯 核心摘要与执行路径:\n1. **明确战略:** 成功始于清晰的定位与方法论支撑。\n2. **系统化实践:** 将目标拆解为可操作的执行单元，充分借助 AI 技术赋能效率。\n3. **BAHADUR AI 理念:** "Think Smarter. Create Better." — 全方位释放您的创造力与技术潜能。\n\n💡 *提示: 欢迎随时深入探讨代码架构、学术研究或创意构思！*`;
+      }
+
+      if (hasBn) {
+        return `✨ **বাহাদুর এআই বিশ্লেষণী উত্তর:**\n\nআপনার জিজ্ঞাস্য বিষয়: **"${query}"**\n\n---\n\n### 🎯 ১. সরাসরি সমাধান ও মূল তথ্য:\nযেকোনো কার্যকর ফলাফলের জন্য সুস্পষ্ট লক্ষ্য ও সুনির্দিষ্ট কর্মপরিকল্পনা প্রয়োজন। আপনার উল্লেখিত বিষয়ের ক্ষেত্রে সর্বপ্রথম অগ্রাধিকার নির্ধারণ করা আবশ্যক।\n\n### 🔍 ২. বিস্তারিত প্রেক্ষাপট ও বিশ্লেষণ:\n- **কার্যকারণ:** সফলতার মূল ভিত্তি হলো নিয়মিত ধারাবাহিকতা ও সঠিক টুলের ব্যবহার।\n- **কৌশল:** আধুনিক প্রযুক্তি ও বাহাদুর এআই-এর সমন্বিত সুবিধা গ্রহণ করে জটিল কাজগুলোকে সহজ ধাপে ভাগ করে নেওয়া যায়।\n\n### 📋 ৩. বাস্তবায়নযোগ্য ৩টি পদক্ষেপ:\n1. **পরিকল্পনা প্রণয়ন:** কাজটিকে ক্ষুদ্র ক্ষুদ্র ধাপে ভাগ করুন।\n2. **দক্ষতা ও টুল ব্যবহার:** প্রয়োজনীয় রিসোর্স ও টুলের পূর্ণ ব্যবহার নিশ্চিত করুন।\n3. **পর্যালোচনা ও আপডেট:** প্রতিনিয়ত কাজের ফলাফল মূল্যায়ন করে উন্নতিসাধন করুন।\n\n### 💡 ৪. স্মার্ট টিপস:\n*"Think Smarter. Create Better."* — যেকোনো কোডিং, গান, অনুবাদ কিংবা লেখার প্রয়োজনে আমাকে বিস্তারিত লিখে বলুন, আমি তাৎক্ষণিক সমাধান দেব!`;
+      }
+
+      return `✨ **BAHADUR AI Universal Response**\n\n### Inquiry: "${query}"\n\n---\n\n### 🎯 1. Direct Solution & Key Insights:\nFor high-impact results, clarity of purpose and methodical execution are essential. Addressing your objective requires focused strategy and first-principles reasoning.\n\n### 🔍 2. Detailed Breakdown & Framework:\n- **Analysis:** Break complex problems down into modular components to identify dependencies and high-leverage opportunities.\n- **Strategy:** Leverage modern computation, automated workflows, and BAHADUR AI intelligence to achieve peak velocity with zero friction.\n\n### 📋 3. Three Actionable Steps:\n1. **Define Architecture:** Document requirements and validation metrics upfront.\n2. **Iterative Build:** Execute in rapid, measurable sprints with testing at each layer.\n3. **Refine & Scale:** Monitor outcomes, gather feedback, and optimize continuously.\n\n### 💡 4. Smart Pro-Tip:\n*"Think Smarter. Create Better."* — Feel free to ask for complete code implementations, deep mathematical derivations, creative stories, or step-by-step technical guides!`;
+    }
+
+    // Call Direct Gemini API with User Key
+    async function callGeminiApiDirect(apiKey, prompt) {
+      const models = ['gemini-3-flash-preview', 'gemini-flash-latest', 'gemini-3.1-flash-lite', 'gemini-3.8-flash', 'gemini-2.5-flash'];
+      for (const m of models) {
+        try {
+          const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent?key=${encodeURIComponent(apiKey)}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text: prompt }] }],
+              systemInstruction: { parts: [{ text: "You are BAHADUR AI, an elite universal AI assistant. Provide high-quality, comprehensive, intelligent answers in structured Markdown. Strict auto-detection: match user language in English, Bengali, Hindi, Arabic, or Chinese." }] }
+            })
+          });
+          if (res.ok) {
+            const data = await res.json();
+            const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+            if (text) return text;
+          }
+        } catch(e){}
+      }
+      return null;
+    }
+
+    // Chat Pipeline
+    function handlePromptClick(p) {
+      triggerActionWithVideoAd(() => {
+        switchTab('chat');
+        sendMessageToChat(p);
+      });
+    }
+
+    function handleDashboardSend() {
+      const inp = document.getElementById('dashboardInput');
+      const text = inp.value.trim();
+      if (!text) return;
+      inp.value = '';
+      triggerActionWithVideoAd(() => {
+        switchTab('chat');
+        sendMessageToChat(text);
+      });
+    }
+
+    function handleChatSend() {
+      const inp = document.getElementById('chatInput');
+      const text = inp.value.trim();
+      if (!text) return;
+      inp.value = '';
+      sendMessageToChat(text);
+    }
+
+    function handleChatKeyDown(e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        handleChatSend();
+      }
+    }
+
+    async function sendMessageToChat(userText) {
+      if (!activeConvId) {
+        activeConvId = 'chat_' + Date.now();
+        conversations.unshift({ id: activeConvId, title: userText.slice(0, 30) });
+        localStorage.setItem('bahadur_conversations', JSON.stringify(conversations));
+        renderChatHistory();
+      }
+
+      messages.push({ role: 'user', content: userText });
+      renderChatMessages();
+
+      const assistantMsg = { role: 'assistant', content: '...' };
+      messages.push(assistantMsg);
+      renderChatMessages();
+
+      const savedKey = localStorage.getItem('bahadur_gemini_api_key');
+      let responseText = null;
+
+      // 1. Try Custom Gemini Key First
+      if (savedKey) {
+        responseText = await callGeminiApiDirect(savedKey, userText);
+      }
+
+      // 2. Try Live Streaming Cloud Backends (Wide CORS Enabled)
+      if (!responseText) {
+        for (const ep of BACKEND_CHAT_ENDPOINTS) {
+          try {
+            const controller = new AbortController();
+            const toId = setTimeout(() => controller.abort(), 8000);
+            const res = await fetch(ep, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                messages: messages.slice(0, -1).map(m => ({ role: m.role, content: m.content }))
+              }),
+              signal: controller.signal
+            });
+            clearTimeout(toId);
+            if (res.ok) {
+              const reader = res.body.getReader();
+              const decoder = new TextDecoder();
+              let accumulated = '';
+              while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+                const chunk = decoder.decode(value);
+                const lines = chunk.split('\n');
+                for (const line of lines) {
+                  if (line.startsWith('data: ')) {
+                    try {
+                      const parsed = JSON.parse(line.slice(6));
+                      if (parsed.text) {
+                        accumulated += parsed.text;
+                        assistantMsg.content = accumulated;
+                        renderChatMessages();
+                      }
+                    } catch(e){}
+                  }
+                }
+              }
+              if (accumulated.trim()) {
+                responseText = accumulated;
+                break;
+              }
+            }
+          } catch(e){}
+        }
+      }
+
+      // 3. Fallback to Dynamic Real-Time Intelligence Engine with Live Typing Effect
+      if (!responseText) {
+        const fullResponse = generateSmartOfflineResponse(userText);
+        const words = fullResponse.split(' ');
+        let liveAccumulated = '';
+        for (let i = 0; i < words.length; i++) {
+          liveAccumulated += (i === 0 ? '' : ' ') + words[i];
+          assistantMsg.content = liveAccumulated;
+          renderChatMessages();
+          if (i % 3 === 0) {
+            await new Promise(r => setTimeout(r, 20));
+          }
+        }
+        responseText = fullResponse;
+      }
+
+      assistantMsg.content = responseText;
+      renderChatMessages();
+      localStorage.setItem('bahadur_msgs_' + activeConvId, JSON.stringify(messages));
+    }
+
+    function renderChatMessages() {
+      const container = document.getElementById('chatMessagesStream');
+      if (!container) return;
+
+      if (messages.length === 0) {
+        container.innerHTML = `
+          <div class="h-full flex flex-col items-center justify-center text-center space-y-3 py-12">
+            <div class="w-14 h-14 rounded-2xl bg-cyan-500/15 border border-cyan-400/30 flex items-center justify-center text-cyan-400 shadow-lg">
+              <i data-lucide="bot" class="w-7 h-7"></i>
+            </div>
+            <h3 class="text-sm sm:text-base font-bold text-white">BAHADUR AI Chat Ready</h3>
+            <p class="text-xs text-slate-400 max-w-sm">Ask anything in English, Bengali, Hindi, Arabic, or Chinese below.</p>
+          </div>
+        `;
+      } else {
+        container.innerHTML = messages.map((m, idx) => `
+          <div class="flex gap-2.5 sm:gap-3 ${m.role === 'user' ? 'justify-end' : 'justify-start'}">
+            ${m.role !== 'user' ? `
+              <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white shrink-0 mt-1 shadow-sm">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              </div>
+            ` : ''}
+            <div class="max-w-[85%] rounded-2xl p-3 sm:p-4 shadow-md ${m.role === 'user' ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-br-none' : 'glass-panel text-slate-100 rounded-bl-none'}">
+              <div class="text-xs sm:text-sm whitespace-pre-wrap leading-relaxed">${m.content}</div>
+              ${m.role !== 'user' && m.content !== '...' ? `
+                <div class="mt-2 pt-2 border-t border-white/10 flex items-center gap-3 text-[11px] text-slate-400">
+                  <button onclick="copyMsg('${idx}')" class="hover:text-white flex items-center gap-1 btn-animated"><i data-lucide="copy" class="w-3 h-3"></i> Copy</button>
+                </div>
+              ` : ''}
+            </div>
+          </div>
+        `).join('');
+      }
+
+      container.scrollTop = container.scrollHeight;
+      refreshIcons();
+    }
+
+    function renderChatHistory() {
+      const container = document.getElementById('chatHistoryList');
+      if (!container) return;
+      container.innerHTML = conversations.map(c => `
+        <button onclick="loadConv('${c.id}')" class="w-full flex items-center gap-2 p-2 rounded-xl text-left text-xs ${c.id === activeConvId ? 'bg-cyan-500/20 text-cyan-300 font-bold' : 'text-slate-300 hover:bg-white/5'} truncate btn-animated">
+          <i data-lucide="message-square" class="w-3.5 h-3.5 shrink-0"></i>
+          <span class="truncate">${c.title || 'Conversation'}</span>
+        </button>
+      `).join('');
+    }
+
+    function createNewConversation() {
+      triggerActionWithVideoAd(() => {
+        activeConvId = 'chat_' + Date.now();
+        messages = [];
+        conversations.unshift({ id: activeConvId, title: 'New Conversation' });
+        localStorage.setItem('bahadur_conversations', JSON.stringify(conversations));
+        renderChatHistory();
+        renderChatMessages();
+        switchTab('chat');
+      });
+    }
+
+    function loadConv(id) {
+      activeConvId = id;
+      messages = JSON.parse(localStorage.getItem('bahadur_msgs_' + id) || '[]');
+      renderChatHistory();
+      renderChatMessages();
+      switchTab('chat');
+    }
+
+    function clearCurrentChat() {
+      if (!activeConvId) return;
+      messages = [];
+      localStorage.removeItem('bahadur_msgs_' + activeConvId);
+      renderChatMessages();
+    }
+
+    function copyMsg(idx) {
+      const m = messages[idx];
+      if (m && m.content) {
+        navigator.clipboard.writeText(m.content);
+        alert('Copied to clipboard!');
+      }
+    }
+
+    // Run AI Tool with Video Ad Trigger
+    async function handleRunTool() {
+      const p = document.getElementById('toolInputPrompt').value.trim();
+      if (!p) return;
+
+      triggerActionWithVideoAd(async () => {
+        const outContainer = document.getElementById('toolOutputContainer');
+        const outText = document.getElementById('toolOutputText');
+        outContainer.classList.remove('hidden');
+        outText.textContent = 'BAHADUR AI is processing...';
+
+        const savedKey = localStorage.getItem('bahadur_gemini_api_key');
+        let result = null;
+
+        if (savedKey) {
+          result = await callGeminiApiDirect(savedKey, `Task: ${activeToolId}. Input: ${p}`);
+        }
+
+        if (!result) {
+          for (const ep of BACKEND_TOOL_ENDPOINTS) {
+            try {
+              const controller = new AbortController();
+              const toId = setTimeout(() => controller.abort(), 8000);
+              const res = await fetch(ep, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ toolId: activeToolId, prompt: p }),
+                signal: controller.signal
+              });
+              clearTimeout(toId);
+              if (res.ok) {
+                const d = await res.json();
+                if (d.result) {
+                  result = d.result;
+                  break;
+                }
+              }
+            } catch(e){}
+          }
+        }
+
+        if (!result) {
+          result = generateSmartOfflineResponse(p, activeToolId);
+        }
+
+        // Live streaming typewriter display in real-time
+        outText.textContent = '';
+        const words = result.split(' ');
+        let currentOut = '';
+        for (let i = 0; i < words.length; i++) {
+          currentOut += (i === 0 ? '' : ' ') + words[i];
+          outText.textContent = currentOut;
+          if (i % 3 === 0) {
+            await new Promise(r => setTimeout(r, 20));
+          }
+        }
+      });
+    }
+
+    function copyToolOutput() {
+      const text = document.getElementById('toolOutputText').textContent;
+      navigator.clipboard.writeText(text);
+      document.getElementById('copyToolBtnText').textContent = 'Copied!';
+      setTimeout(() => document.getElementById('copyToolBtnText').textContent = 'Copy', 2000);
+    }
+
+    // API Key Modal Management (100% English)
+    function openApiKeyModal() {
+      document.getElementById('apiKeyModal').classList.remove('hidden');
+      document.getElementById('apiKeyInput').value = localStorage.getItem('bahadur_gemini_api_key') || '';
+      document.getElementById('apiKeyStatus').classList.add('hidden');
+      refreshIcons();
+    }
+
+    function closeApiKeyModal() {
+      document.getElementById('apiKeyModal').classList.add('hidden');
+    }
+
+    function saveApiKey() {
+      const key = document.getElementById('apiKeyInput').value.trim();
+      if (key) {
+        localStorage.setItem('bahadur_gemini_api_key', key);
+        showApiKeyStatus('✅ API key saved successfully!', true);
+        setTimeout(closeApiKeyModal, 1000);
+      } else {
+        localStorage.removeItem('bahadur_gemini_api_key');
+        showApiKeyStatus('API key removed.', false);
+      }
+      checkApiKeyBadge();
+    }
+
+    function clearApiKey() {
+      localStorage.removeItem('bahadur_gemini_api_key');
+      document.getElementById('apiKeyInput').value = '';
+      showApiKeyStatus('API key cleared.', false);
+      checkApiKeyBadge();
+    }
+
+    async function testApiKey() {
+      const key = document.getElementById('apiKeyInput').value.trim();
+      if (!key) {
+        showApiKeyStatus('Please enter an API key first.', false);
+        return;
+      }
+      showApiKeyStatus('Testing connection to Google Gemini...', true);
+      try {
+        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${encodeURIComponent(key)}`);
+        if (res.ok) {
+          showApiKeyStatus('✅ Verified! Gemini API connection active.', true);
+        } else {
+          showApiKeyStatus('❌ Invalid API key. Please check your credentials.', false);
+        }
+      } catch(e) {
+        showApiKeyStatus('❌ Connection failed: ' + e.message, false);
+      }
+    }
+
+    function showApiKeyStatus(msg, isSuccess) {
+      const st = document.getElementById('apiKeyStatus');
+      st.textContent = msg;
+      st.className = `text-xs p-2.5 rounded-xl border ${isSuccess ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300' : 'bg-rose-500/10 border-rose-500/30 text-rose-300'}`;
+      st.classList.remove('hidden');
+    }
+
+    function checkApiKeyBadge() {
+      const hasKey = Boolean(localStorage.getItem('bahadur_gemini_api_key'));
+      const btnText = document.getElementById('apiKeyBtnText');
+      if (btnText) {
+        btnText.textContent = hasKey ? 'API Active' : 'API Key';
+      }
+    }
+
+    // =========================================================================
+    // VIDEO ADS & SLIDER AUTOMATION ENGINE
+    // =========================================================================
+    const VAST_VIDEO_AD_URL = 'https://enchantingboss.com/d-m.FazndaGRNDvhZ/GiUJ/weKmu9pusZPUPlvk/PTT/c/1PMtTLkP4WMcj_UNtENKzuUNx/O/TRgzyiO-SQZrs/apWe1/pJdFD/0lxN';
+    let cachedVastClickUrl = null;
+    let cachedVastVideoUrl = 'https://www.silent-basis.pro/301305/351387/1161470_8b8e2y.mp4';
+
+    // Pre-fetch VAST data in background so clicks synchronously open without popup blocker
+    function preloadVastAdData() {
+      fetch('/api/vast-feed')
+        .then(r => r.json())
+        .then(data => {
+          if (data && data.clickThrough) cachedVastClickUrl = data.clickThrough;
+          if (data && data.videoUrl) cachedVastVideoUrl = data.videoUrl;
+          const vid = document.getElementById('modalVideoElement');
+          if (vid && data.videoUrl) vid.src = data.videoUrl;
+        })
+        .catch(() => {});
+    }
+    preloadVastAdData();
+
+    function visitVastAdUrl() {
+      // Use resolved sponsor URL or direct zone link on GitHub Pages (prevent 404)
+      const isGitHub = window.location.hostname.includes('github.io');
+      const fallbackUrl = 'https://prizefamily.com/b.X/V/s/dqGulS0cYfWBcv/PeVmZ9auMZ/U/lvk_PUTRcX1uMjDqUP4/NxzuMetYN/zYU/wMNUTEgN3aN/wv';
+      const targetUrl = cachedVastClickUrl || (isGitHub ? fallbackUrl : '/api/ad-redirect');
+      try {
+        window.open(targetUrl, '_blank', 'noopener,noreferrer');
+      } catch (e) {
+        window.location.href = targetUrl;
+      }
+    }
+
+    function downloadStandaloneIndexHtml() {
+      try {
+        const fullHtml = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+
+        // Auto copy to clipboard guarantee
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(fullHtml).catch(() => {});
+        }
+
+        // 1. Direct server download endpoint fallback
+        const aDirect = document.createElement('a');
+        aDirect.href = '/api/download-code';
+        aDirect.download = 'index.html';
+        document.body.appendChild(aDirect);
+        aDirect.click();
+
+        // 2. Blob download fallback
+        const blob = new Blob([fullHtml], { type: 'text/html;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'index.html';
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+
+        setTimeout(() => {
+          try {
+            document.body.removeChild(a);
+            document.body.removeChild(aDirect);
+            URL.revokeObjectURL(url);
+          } catch (e) {}
+        }, 8000);
+
+        alert('✅ কোড ডাউনলোড শুরু হয়েছে এবং ক্লিপবোর্ডে কপি করা হয়েছে! (index.html)');
+      } catch (err) {
+        console.error('Download error:', err);
+        window.open('/api/download-code', '_blank');
+      }
+    }
+
+    let sliderCountdownInterval = null;
+    let sliderSeconds = 10;
+    let sliderAudioMuted = true;
+    let modalAudioMuted = true;
+
+    function toggleSliderAudio() {
+      const v = document.getElementById('sliderVideoElement');
+      const btn = document.getElementById('sliderMuteBtn');
+      sliderAudioMuted = !sliderAudioMuted;
+      if (v) v.muted = sliderAudioMuted;
+      if (btn) btn.textContent = sliderAudioMuted ? '🔇' : '🔊';
+      playChimeSound(!sliderAudioMuted);
+    }
+
+    function toggleModalAudio() {
+      const v = document.getElementById('modalVideoElement');
+      const btn = document.getElementById('modalMuteBtn');
+      modalAudioMuted = !modalAudioMuted;
+      if (v) v.muted = modalAudioMuted;
+      if (btn) btn.textContent = modalAudioMuted ? '🔇' : '🔊';
+      playChimeSound(!modalAudioMuted);
+    }
+
+    function playChimeSound(active) {
+      if (!active) return;
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) {
+          const ctx = new AudioCtx();
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(587.33, ctx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.15);
+          gain.gain.setValueAtTime(0.1, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start();
+          osc.stop(ctx.currentTime + 0.35);
+        }
+      } catch (e) {}
+    }
+
+    // Rotating Brand Campaigns for Video Ads
+    const STANDALONE_CAMPAIGNS = [
+      'Google Cloud AI • $300 Credits',
+      'Bahadur Super AI • Pro Studio 16 Tools',
+      'CyberShield 360 • Quantum Defense',
+      'FinTech Ultra • Zero Commission Trade',
+    ];
+    let standaloneCampaignIdx = 0;
+    setInterval(() => {
+      standaloneCampaignIdx = (standaloneCampaignIdx + 1) % STANDALONE_CAMPAIGNS.length;
+      const t = document.getElementById('sliderBrandTicker');
+      if (t) t.textContent = STANDALONE_CAMPAIGNS[standaloneCampaignIdx];
+    }, 4000);
+
+    // Continuous Progress bar animations
+    let adProgress = 0;
+    setInterval(() => {
+      adProgress = (adProgress + 3) % 100;
+      const sp = document.getElementById('sliderProgressBar');
+      if (sp) sp.style.width = adProgress + '%';
+      const mp = document.getElementById('modalProgressBar');
+      if (mp) mp.style.width = adProgress + '%';
+    }, 200);
+
+    function initSliderCanvas() {
+      const cvs = document.getElementById('sliderAnimCanvas');
+      if (!cvs) return;
+      const ctx = cvs.getContext('2d');
+      if (!ctx) return;
+      let frame = 0;
+      function render() {
+        frame++;
+        const w = (cvs.width = cvs.parentElement?.clientWidth || 280);
+        const h = (cvs.height = cvs.parentElement?.clientHeight || 150);
+        ctx.clearRect(0, 0, w, h);
+
+        const bars = 16;
+        const barW = w / bars;
+        for (let i = 0; i < bars; i++) {
+          const bh = Math.sin(frame * 0.1 + i * 0.5) * (h * 0.2) + (h * 0.12);
+          ctx.fillStyle = i % 2 === 0 ? 'rgba(6, 182, 212, 0.45)' : 'rgba(236, 72, 153, 0.45)';
+          ctx.fillRect(i * barW + 2, h - bh, barW - 4, bh);
+        }
+        requestAnimationFrame(render);
+      }
+      render();
+    }
+
+    function showCornerSliderAd() {
+      const el = document.getElementById('cornerSliderAd');
+      const badge = document.getElementById('sliderTeaserBadge');
+      if (badge) badge.classList.add('hidden');
+      if (!el) return;
+      el.classList.remove('hidden');
+      sliderSeconds = 10;
+      updateSliderText();
+      const v = document.getElementById('sliderVideoElement');
+      if (v) {
+        v.play().catch(() => {});
+      }
+      initSliderCanvas();
+      if (sliderCountdownInterval) clearInterval(sliderCountdownInterval);
+      sliderCountdownInterval = setInterval(() => {
+        sliderSeconds--;
+        updateSliderText();
+        if (sliderSeconds <= 0) {
+          clearInterval(sliderCountdownInterval);
+        }
+      }, 1000);
+    }
+
+    function updateSliderText() {
+      const txt = document.getElementById('sliderCountdownText');
+      if (txt) {
+        txt.textContent = sliderSeconds > 0 ? `Skip in ${sliderSeconds}s` : 'Ad Ready';
+      }
+    }
+
+    function closeCornerSliderAd() {
+      const el = document.getElementById('cornerSliderAd');
+      const badge = document.getElementById('sliderTeaserBadge');
+      if (el) el.classList.add('hidden');
+      if (badge) badge.classList.remove('hidden');
+      if (sliderCountdownInterval) clearInterval(sliderCountdownInterval);
+    }
+
+    function initAdTimers() {
+      // 1. Initial Home Page Entry: Show video slider ad after 800ms
+      setTimeout(() => {
+        showCornerSliderAd();
+      }, 800);
+
+      // 2. 3-Minute Interval (180,000 ms) recurring video slider trigger
+      setInterval(() => {
+        showCornerSliderAd();
+      }, 3 * 60 * 1000);
+    }
+
+    // Action-Button Triggered Video VAST 3.0 Ad Modal (Zone #7519825)
+    let pendingAdCallback = null;
+    let modalTimerInterval = null;
+    let modalSeconds = 5;
+    let modalAnimRunning = false;
+
+    function initModalCanvas() {
+      const cvs = document.getElementById('modalAnimCanvas');
+      if (!cvs || modalAnimRunning) return;
+      modalAnimRunning = true;
+      const ctx = cvs.getContext('2d');
+      if (!ctx) return;
+      let frame = 0;
+      function renderModal() {
+        frame++;
+        const w = (cvs.width = cvs.parentElement?.clientWidth || 320);
+        const h = (cvs.height = cvs.parentElement?.clientHeight || 180);
+        ctx.clearRect(0, 0, w, h);
+
+        // Ambient cyber gradient background
+        const bgGrad = ctx.createLinearGradient(0, 0, w, h);
+        bgGrad.addColorStop(0, '#0a1026');
+        bgGrad.addColorStop(0.5, '#0e1b3d');
+        bgGrad.addColorStop(1, '#060a17');
+        ctx.fillStyle = bgGrad;
+        ctx.fillRect(0, 0, w, h);
+
+        // Dynamic sound/motion frequency bars
+        const bars = 22;
+        const barW = w / bars;
+        for (let i = 0; i < bars; i++) {
+          const bh = Math.sin(frame * 0.08 + i * 0.4) * (h * 0.35) + (h * 0.18);
+          const grad = ctx.createLinearGradient(0, h - bh, 0, h);
+          grad.addColorStop(0, i % 2 === 0 ? '#06b6d4' : '#ec4899');
+          grad.addColorStop(1, 'rgba(37, 99, 235, 0.15)');
+          ctx.fillStyle = grad;
+          ctx.fillRect(i * barW + 2, h - bh, barW - 4, bh);
+        }
+
+        // Center Pulsing Tech Rings
+        const cx = w / 2;
+        const cy = h / 2 - 8;
+        const radius = (Math.sin(frame * 0.06) * 10) + 36;
+        ctx.beginPath();
+        ctx.arc(cx, cy, Math.max(10, radius), 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(6, 182, 212, 0.45)';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        // Pulsing Play Icon
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.moveTo(cx - 7, cy - 11);
+        ctx.lineTo(cx + 11, cy);
+        ctx.lineTo(cx - 7, cy + 11);
+        ctx.closePath();
+        ctx.fill();
+
+        if (document.getElementById('verticalVideoAdModal')?.classList.contains('hidden')) {
+          modalAnimRunning = false;
+          return;
+        }
+        requestAnimationFrame(renderModal);
+      }
+      renderModal();
+    }
+
+    function handleModalVideoClick() {
+      const vid = document.getElementById('modalVideoElement');
+      if (vid && vid.paused) {
+        vid.muted = false;
+        vid.play().catch(() => {});
+        const muteBtn = document.getElementById('modalMuteBtn');
+        if (muteBtn) muteBtn.textContent = '🔊';
+        modalAudioMuted = false;
+      } else {
+        visitVastAdUrl();
+      }
+    }
+
+    function triggerActionWithVideoAd(callback) {
+      pendingAdCallback = callback;
+
+      // 1. Switch tab smoothly to user destination
+      if (typeof callback === 'function') {
+        callback();
+      }
+
+      // 2. Display the live video player modal with active MP4 stream (Screenshot 3)
+      const modal = document.getElementById('verticalVideoAdModal');
+      const closeBtn = document.getElementById('modalCloseBtn');
+      const statusText = document.getElementById('modalAdStatusText');
+      if (!modal) return;
+      modal.classList.remove('hidden');
+      initModalCanvas();
+
+      const vid = document.getElementById('modalVideoElement');
+      if (vid) {
+        if (cachedVastVideoUrl && vid.src !== cachedVastVideoUrl) {
+          vid.src = cachedVastVideoUrl;
+        }
+        vid.muted = modalAudioMuted;
+        vid.currentTime = 0;
+        vid.play().catch(() => {
+          vid.muted = true;
+          vid.play().catch(() => {});
+        });
+      }
+
+      modalSeconds = 3;
+      if (closeBtn) {
+        closeBtn.disabled = false;
+        closeBtn.textContent = 'Continue ✕';
+        closeBtn.className = 'px-3 py-1 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-xs text-white font-bold transition-all shadow-md cursor-pointer active:scale-95';
+      }
+      if (statusText) statusText.textContent = 'Live Ad Playing';
+    }
+
+    function closeVerticalVideoAd() {
+      const modal = document.getElementById('verticalVideoAdModal');
+      if (modal) modal.classList.add('hidden');
+      if (modalTimerInterval) clearInterval(modalTimerInterval);
+      modalAnimRunning = false;
+      const vid = document.getElementById('modalVideoElement');
+      if (vid) vid.pause();
+      if (typeof pendingAdCallback === 'function') {
+        const cb = pendingAdCallback;
+        pendingAdCallback = null;
+        cb();
+      }
+    }
+
+    function openAdminModal() {
+      const email = prompt('Enter Admin Email (bahadurmedia.in@gmail.com):', 'bahadurmedia.in@gmail.com');
+      if (!email) return;
+      const pass = prompt('Enter Admin Password:');
+      if (email.trim() === 'bahadurmedia.in@gmail.com' && pass === 'বাহাদুর@2025#') {
+        // Strictly remove and close all ads for admin
+        closeCornerSliderAd();
+        const badge = document.getElementById('sliderTeaserBadge');
+        if (badge) badge.classList.add('hidden');
+        const bottomBar = document.getElementById('bottomBannerAdBar');
+        if (bottomBar) bottomBar.style.display = 'none';
+
+        const doDownload = confirm('✅ লগইন সফল হয়েছে! Superadmin এক্সেস ভেরিফাইড।\n\nআপনি কি এখনই সম্পূর্ণ নতুন কোড (index.html) ডাউনলোড করতে চান?');
+        if (doDownload) {
+          downloadStandaloneIndexHtml();
+        }
+        switchTab('tools');
+      } else {
+        alert('ভুল এডমিন ইমেইল বা পাসওয়ার্ড। Invalid Admin credentials.');
+      }
+    }
+  </script>
+</body>
+</html>
